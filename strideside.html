@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StrideSide — Digital Products & Services Studio</title>
+<meta name="description" content="StrideSide — Digital Products &amp; Services Studio. Websites, web apps, mobile apps, and AI-powered tools. Boutique. Personalized. Always on the RightSide.">
+<meta property="og:title" content="StrideSide — Digital Products &amp; Services Studio">
+<meta property="og:description" content="Forward motion. Right beside you. Always. Websites, apps, AI tools — boutique, personalized, built right beside you.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://strideside.netlify.app">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="StrideSide — Digital Products &amp; Services Studio">
+<meta name="twitter:description" content="Forward motion. Right beside you. Always.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #E8500A;
+  --blue:   #003DA5;
+  --court:  #001A4E;
+  --chalk:  #F5F5F0;
+  --sky:    #4D9EE8;
+  --black:  #060810;
+  --surface:#0A1020;
+  --card:   #0D1830;
+  --border: rgba(77,158,232,0.12);
+  --muted:  rgba(255,255,255,0.45);
+  --dim:    rgba(255,255,255,0.25);
+  --fd: 'Barlow Condensed', sans-serif;
+  --fb: 'Barlow', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:#fff;font-family:var(--fb);font-weight:400;overflow-x:hidden;padding-top:26px}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:26px;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;background:rgba(6,8,16,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:background .3s}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-icon{width:34px;height:34px;background:var(--orange);border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:900;font-size:15px;letter-spacing:-.04em;color:#fff;flex-shrink:0}
+.nav-wm{font-family:var(--fd);font-weight:900;font-size:22px;letter-spacing:-.02em;text-transform:uppercase}
+.nav-wm span{font-weight:300;color:var(--orange)}
+.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
+.nav-links a{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--orange)!important;color:#fff!important;padding:8px 20px;border-radius:6px;transition:background .2s,transform .15s!important}
+.nav-cta:hover{background:#ff6422!important;transform:translateY(-1px)}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;background:var(--blue);overflow:hidden;padding-top:98px}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:80px 80px}
+.hero-glow1{position:absolute;top:-20%;right:-10%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(232,80,10,.25) 0%,transparent 65%)}
+.hero-glow2{position:absolute;bottom:-30%;left:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,26,78,.8) 0%,transparent 65%)}
+.hero-content{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 4rem;width:100%}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:1.5rem;opacity:0;animation:fadeUp .6s .2s forwards}
+.hero-h1{font-family:var(--fd);font-weight:900;font-size:clamp(72px,11vw,148px);line-height:.92;letter-spacing:-.02em;text-transform:uppercase;color:#fff;opacity:0;animation:fadeUp .7s .35s forwards}
+.hero-h1 .strike{color:var(--orange);display:block}
+.hero-sub{margin-top:2.5rem;max-width:520px;font-size:18px;font-weight:300;line-height:1.65;color:rgba(255,255,255,.7);opacity:0;animation:fadeUp .7s .5s forwards}
+.hero-sub strong{color:#fff;font-weight:600}
+.hero-actions{display:flex;align-items:center;gap:1.25rem;margin-top:2.5rem;opacity:0;animation:fadeUp .7s .65s forwards}
+.btn-primary{background:var(--orange);color:#fff;padding:14px 32px;border-radius:7px;font-family:var(--fd);font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;transition:background .2s,transform .15s;border:none;cursor:pointer;display:inline-block}
+.btn-primary:hover{background:#ff6422;transform:translateY(-2px)}
+.btn-ghost{color:rgba(255,255,255,.6);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:color .2s}
+.btn-ghost:hover{color:#fff}
+.btn-ghost::after{content:'↓';font-size:16px}
+.hero-badge{position:absolute;bottom:3rem;right:4rem;z-index:1;opacity:0;animation:fadeUp .7s .9s forwards}
+.hero-badge-inner{border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:1rem 1.25rem;text-align:center;background:rgba(0,26,78,.6);backdrop-filter:blur(10px)}
+.hero-badge-num{font-family:var(--fd);font-weight:900;font-size:42px;color:#fff;letter-spacing:-.02em;line-height:1}
+.hero-badge-num span{color:var(--orange)}
+.hero-badge-lbl{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:4px}
+.hero-vline{position:absolute;bottom:0;left:4rem;width:1px;height:80px;background:linear-gradient(to bottom,rgba(77,158,232,.6),transparent);z-index:1}
+
+/* SHARED */
+section{position:relative;z-index:1}
+.container{max-width:1200px;margin:0 auto;padding:0 4rem}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--orange)}
+.eyebrow.blue{color:var(--sky)}
+.eyebrow.blue::before{background:var(--sky)}
+.sec-title{font-family:var(--fd);font-weight:900;font-size:clamp(42px,5vw,72px);line-height:.95;text-transform:uppercase;letter-spacing:-.02em}
+.sec-title .o{color:var(--orange)}
+
+/* STORY */
+#story{background:var(--black);padding:9rem 0}
+.story-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:6rem;align-items:start;margin-top:4rem}
+.story-left{position:sticky;top:120px}
+.story-phase{font-family:var(--fd);font-weight:900;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky);margin-bottom:1.5rem}
+.story-big{font-family:var(--fd);font-weight:900;font-size:clamp(44px,5vw,64px);line-height:.9;text-transform:uppercase;letter-spacing:-.02em}
+.story-big .a{color:var(--orange);display:block}
+.story-pull{margin-top:2rem;padding:1.5rem;border-left:3px solid var(--orange);background:rgba(232,80,10,.06);border-radius:0 8px 8px 0}
+.story-pull p{font-size:15px;font-style:italic;font-weight:300;line-height:1.7;color:rgba(255,255,255,.75)}
+.story-pull cite{display:block;margin-top:10px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-style:normal}
+.team-section{margin-top:3rem}
+.team-lbl{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.team-lbl::before{content:'';display:block;width:28px;height:1px;background:var(--sky)}
+.team-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.team-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem;transition:border-color .2s,transform .2s}
+.team-card:hover{border-color:rgba(77,158,232,.35);transform:translateY(-3px)}
+.tc-icon{width:38px;height:38px;border-radius:8px;background:rgba(77,158,232,.1);border:1px solid rgba(77,158,232,.2);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px}
+.team-card h4{font-family:var(--fd);font-weight:800;font-size:16px;text-transform:uppercase;letter-spacing:-.01em;color:#fff}
+.tc-role{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin-top:2px}
+.team-card p{font-size:12px;font-weight:300;color:rgba(255,255,255,.45);line-height:1.6;margin-top:8px}
+
+/* timeline */
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:0;align-items:stretch}
+.tl-spine{width:40px;flex-shrink:0;display:flex;flex-direction:column;align-items:center}
+.tl-dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--orange);background:var(--black);flex-shrink:0;margin-top:4px;z-index:1}
+.tl-dot.on{background:var(--orange)}
+.tl-dot.b{border-color:var(--sky)}
+.tl-dot.b.on{background:var(--sky)}
+.tl-dot.final{border-color:var(--orange);background:var(--orange);width:15px;height:15px}
+.tl-line{flex:1;width:1px;background:rgba(255,255,255,.07);margin:4px 0}
+.tl-body{flex:1;padding:0 0 3rem 1.25rem}
+.tl-era{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:4px}
+.tl-h{font-family:var(--fd);font-weight:800;font-size:22px;color:#fff;letter-spacing:-.01em;line-height:1.2;text-transform:uppercase}
+.tl-h.o{color:var(--orange)}
+.tl-p{margin-top:8px;font-size:14px;font-weight:300;line-height:1.7;color:rgba(255,255,255,.5)}
+.tl-p strong{color:#fff}
+.tl-truth{margin-top:8px;font-size:12px;font-style:italic;color:rgba(232,80,10,.8)}
+
+/* WORK */
+#work{background:var(--surface);padding:9rem 0;border-top:1px solid var(--border)}
+.work-hdr{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:2rem}
+.live-badge{display:flex;align-items:center;gap:7px;background:rgba(232,80,10,.1);border:1px solid rgba(232,80,10,.25);border-radius:20px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:4rem}
+.proj-card{border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--card);transition:transform .25s,border-color .25s;cursor:pointer}
+.proj-card:hover{transform:translateY(-6px);border-color:rgba(77,158,232,.4)}
+.proj-thumb{height:260px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.thumb-ddml{background:linear-gradient(135deg,#0a1628 0%,#1a3a6e 50%,#0d2040 100%)}
+.thumb-gg{background:linear-gradient(135deg,#0a0a0f 0%,#1a0a2e 50%,#0f0a1a 100%)}
+.proj-glow-ddml{position:absolute;top:-50px;right:-50px;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(0,61,165,.5) 0%,transparent 65%)}
+.proj-glow-gg{position:absolute;top:-50px;right:-50px;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(155,92,246,.4) 0%,transparent 65%)}
+.proj-logo{font-family:var(--fd);font-weight:900;font-size:56px;letter-spacing:-.03em;text-transform:uppercase;z-index:1;text-align:center;line-height:1}
+.ddml-c{color:#fff}.ddml-c span{color:#FFD700}
+.gg-c{color:#fff}.gg-c span{color:#9B5CF6}
+.proj-tag{position:absolute;top:1rem;left:1rem;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:4px;background:rgba(232,80,10,.15);color:var(--orange);border:1px solid rgba(232,80,10,.3)}
+.proj-body{padding:1.5rem}
+.proj-title{font-family:var(--fd);font-weight:900;font-size:26px;text-transform:uppercase;letter-spacing:-.01em;color:#fff}
+.proj-type{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin-top:3px}
+.proj-desc{font-size:14px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.65;margin-top:10px}
+.proj-foot{display:flex;align-items:center;justify-content:space-between;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border)}
+.proj-stack{display:flex;gap:6px;flex-wrap:wrap}
+.stag{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,.05);color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.08)}
+.proj-link{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:5px;transition:gap .2s;white-space:nowrap}
+.proj-card:hover .proj-link{gap:9px}
+
+/* SERVICES */
+#services{background:var(--black);padding:9rem 0;border-top:1px solid var(--border)}
+.svc-intro{display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-top:4rem;margin-bottom:4rem;align-items:start}
+.svc-text p{font-size:16px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.55);margin-top:1rem}
+.svc-text p strong{color:#fff;font-weight:500}
+
+/* what we build — capability cards */
+.cap-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:4rem}
+.cap-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color .2s,transform .2s}
+.cap-card:hover{border-color:rgba(77,158,232,.3);transform:translateY(-3px)}
+.cap-icon{font-size:22px;margin-bottom:10px}
+.cap-title{font-family:var(--fd);font-weight:800;font-size:18px;text-transform:uppercase;letter-spacing:-.01em;color:#fff}
+.cap-sub{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-top:3px;margin-bottom:10px}
+.cap-desc{font-size:13px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.65}
+.cap-tools{display:flex;gap:5px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+.ctool{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:rgba(77,158,232,.08);color:var(--sky);border:1px solid rgba(77,158,232,.15)}
+
+/* support strip */
+.support-strip{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:2.5rem 3rem;margin-bottom:4rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5rem}
+.support-item{display:flex;flex-direction:column;gap:8px}
+.support-item+.support-item{padding-left:2.5rem;border-left:1px solid var(--border)}
+.sup-icon{font-size:24px}
+.sup-title{font-family:var(--fd);font-weight:800;font-size:18px;text-transform:uppercase;letter-spacing:-.01em;color:#fff}
+.sup-desc{font-size:13px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.65}
+.sup-desc strong{color:var(--sky);font-weight:500}
+
+.price-lbl{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:1.5rem;display:flex;align-items:center;gap:10px}
+.price-lbl::before{content:'';display:block;width:28px;height:1px;background:var(--sky)}
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.price-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.75rem 1.5rem;transition:transform .2s,border-color .2s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.price-card:hover{transform:translateY(-4px);border-color:rgba(77,158,232,.35)}
+.price-card.feat{border-color:rgba(232,80,10,.4);background:rgba(232,80,10,.05)}
+.price-card.feat::before{content:'Most Popular';position:absolute;top:12px;right:12px;font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:rgba(232,80,10,.2);color:var(--orange);border:1px solid rgba(232,80,10,.3)}
+.price-tier{font-family:var(--fd);font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:-.01em;color:#fff}
+.price-range{font-family:var(--fd);font-weight:700;font-size:30px;color:var(--orange);margin:8px 0 4px;letter-spacing:-.02em;line-height:1}
+.price-period{font-size:11px;color:var(--dim)}
+.price-div{height:1px;background:var(--border);margin:1.25rem 0}
+.price-feats{list-style:none;display:flex;flex-direction:column;gap:8px;flex:1}
+.price-feats li{font-size:12px;font-weight:300;color:rgba(255,255,255,.5);display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+.price-feats li::before{content:'→';color:var(--sky);flex-shrink:0;font-size:11px;margin-top:1px}
+.price-cta{margin-top:1.5rem;display:block;text-align:center;padding:10px;border-radius:7px;font-family:var(--fd);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);transition:all .2s}
+.price-cta:hover{border-color:var(--orange);color:var(--orange)}
+.price-card.feat .price-cta{background:var(--orange);border-color:var(--orange);color:#fff}
+.price-card.feat .price-cta:hover{background:#ff6422}
+
+.guarantee{margin-top:4rem;padding:2.5rem 3rem;background:var(--blue);border-radius:14px;display:flex;align-items:center;gap:3rem;border:1px solid rgba(255,255,255,.1)}
+.guar-text h3{font-family:var(--fd);font-weight:900;font-size:28px;text-transform:uppercase;letter-spacing:-.01em;color:#fff}
+.guar-text p{font-size:14px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.65;margin-top:8px;max-width:480px}
+.guar-badge{flex-shrink:0;text-align:center;border-left:1px solid rgba(255,255,255,.12);padding-left:3rem}
+.guar-badge-txt{font-family:var(--fd);font-weight:900;font-size:16px;text-transform:uppercase;letter-spacing:.02em;line-height:1.3;color:#fff}
+.guar-badge-txt span{color:var(--orange);display:block}
+
+/* CONTACT */
+#contact{background:var(--court);padding:9rem 0 6rem;border-top:1px solid var(--border)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:6rem;margin-top:4rem;align-items:start}
+.contact-h{font-family:var(--fd);font-weight:900;font-size:clamp(52px,6vw,80px);line-height:.9;text-transform:uppercase;letter-spacing:-.02em}
+.contact-h span{color:var(--orange);display:block}
+.contact-p{font-size:15px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.5);margin-top:1.5rem;max-width:380px}
+.promises{margin-top:2.5rem;display:flex;flex-direction:column;gap:10px}
+.promise{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:500;color:rgba(255,255,255,.55);letter-spacing:.04em}
+.promise::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.cf{display:flex;flex-direction:column;gap:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
+.fg input,.fg textarea,.fg select{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 16px;color:#fff;font-family:var(--fb);font-size:14px;font-weight:300;outline:none;transition:border-color .2s,background .2s;width:100%}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--sky);background:rgba(77,158,232,.05)}
+.fg textarea{resize:vertical;min-height:130px}
+.fg select option{background:var(--court)}
+.form-btn{background:var(--orange);color:#fff;border:none;padding:15px 36px;border-radius:8px;font-family:var(--fd);font-weight:700;font-size:16px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .15s;align-self:flex-start}
+.form-btn:hover{background:#ff6422;transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid var(--border);padding:3rem 0 2rem}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.foot-logo{font-family:var(--fd);font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:-.02em}
+.foot-logo span{font-weight:300;color:var(--orange)}
+.foot-tag{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-top:3px}
+.foot-guar{text-align:center;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25);line-height:1.6}
+.foot-guar span{color:var(--sky)}
+.foot-copy{font-size:11px;color:rgba(255,255,255,.2);text-align:right}
+
+/* COMMUNITY */
+#community{background:var(--blue);padding:9rem 0;border-top:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden}
+#community::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,80,10,.2) 0%,transparent 65%);pointer-events:none}
+#community::after{content:'';position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,26,78,.7) 0%,transparent 65%);pointer-events:none}
+.comm-hero{text-align:center;max-width:780px;margin:0 auto 5rem;position:relative;z-index:1}
+.comm-hero .sec-title{font-size:clamp(52px,7vw,96px)}
+.comm-hero .sec-title .o{display:block}
+.comm-manifesto{margin-top:2rem;font-size:18px;font-weight:300;line-height:1.8;color:rgba(255,255,255,.75)}
+.comm-manifesto strong{color:#fff;font-weight:600}
+.comm-creed{position:relative;z-index:1;margin:0 auto 5rem;max-width:900px;text-align:center;padding:3rem;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(0,26,78,.5);backdrop-filter:blur(8px)}
+.comm-creed-text{font-family:var(--fd);font-weight:700;font-size:clamp(20px,2.5vw,28px);line-height:1.4;color:#fff;letter-spacing:.01em;font-style:italic}
+.comm-creed-text .o{color:var(--orange)}
+.comm-creed-attr{margin-top:1.25rem;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.strider-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);border-radius:14px;overflow:hidden;margin-bottom:5rem;position:relative;z-index:1}
+.strider-cell{background:rgba(0,26,78,.6);padding:2.5rem 2rem;transition:background .25s}
+.strider-cell:hover{background:rgba(0,26,78,.9)}
+.sc-number{font-family:var(--fd);font-weight:900;font-size:56px;line-height:1;color:rgba(232,80,10,.2);letter-spacing:-.03em;margin-bottom:.5rem}
+.sc-title{font-family:var(--fd);font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:-.01em;color:#fff;line-height:1.1}
+.sc-body{font-size:13px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.7;margin-top:.75rem}
+.sc-body strong{color:#fff;font-weight:500}
+.striders-wall{position:relative;z-index:1;margin-bottom:5rem;overflow:hidden}
+.wall-label{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.3);text-align:center;margin-bottom:1.5rem}
+.ticker-wrap{display:flex;gap:10px;animation:ticker 28s linear infinite;width:max-content}
+.ticker-wrap:hover{animation-play-state:paused}
+.ticker-item{flex-shrink:0;background:rgba(0,26,78,.7);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 18px;display:flex;align-items:center;gap:10px}
+.ti-avatar{width:28px;height:28px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:900;font-size:12px;color:#fff;flex-shrink:0}
+.ti-avatar.b{background:var(--sky)}.ti-avatar.d{background:#1a6e3a}
+.ti-name{font-size:12px;font-weight:600;color:#fff;white-space:nowrap}
+.ti-tag{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);white-space:nowrap}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.comm-promise{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:4rem}
+.cp-card{background:rgba(0,26,78,.5);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2rem;transition:border-color .2s,transform .2s}
+.cp-card:hover{border-color:rgba(232,80,10,.3);transform:translateY(-3px)}
+.cp-card.orange{border-color:rgba(232,80,10,.25);background:rgba(232,80,10,.07)}
+.cp-icon{font-size:28px;margin-bottom:12px}
+.cp-title{font-family:var(--fd);font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:-.01em;color:#fff}
+.cp-body{font-size:14px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.7;margin-top:8px}
+.cp-body strong{color:#fff;font-weight:500}
+.comm-join{position:relative;z-index:1;text-align:center;padding:3.5rem;background:rgba(232,80,10,.1);border:1px solid rgba(232,80,10,.25);border-radius:16px}
+.comm-join h3{font-family:var(--fd);font-weight:900;font-size:clamp(32px,4vw,52px);text-transform:uppercase;letter-spacing:-.02em;color:#fff;line-height:1}
+.comm-join h3 span{color:var(--orange)}
+.comm-join p{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);margin-top:1rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7}
+.comm-join-btn{display:inline-block;margin-top:2rem;background:var(--orange);color:#fff;padding:15px 40px;border-radius:8px;font-family:var(--fd);font-weight:700;font-size:17px;letter-spacing:.08em;text-transform:uppercase;transition:background .2s,transform .15s}
+.comm-join-btn:hover{background:#ff6422;transform:translateY(-2px)}
+.foot-strider-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,61,165,.3);border:1px solid rgba(77,158,232,.2);border-radius:20px;padding:6px 16px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin-bottom:6px}
+.foot-strider-dot{width:5px;height:5px;border-radius:50%;background:var(--sky)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:2px}
+/* ── BETA BAR ── */
+#beta-bar{position:fixed;top:0;left:0;right:0;z-index:99999;height:26px;background:#E8500A;display:flex;align-items:center;justify-content:center;gap:12px;pointer-events:none}
+#beta-bar .bb-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.55);animation:bbpulse 1.5s infinite}
+#beta-bar .bb-text{font-family:var(--fd);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#fff}
+#beta-bar .bb-divider{color:rgba(255,255,255,.35);font-size:10px}
+#beta-bar .bb-tag{font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+@keyframes bbpulse{0%,100%{opacity:1}50%{opacity:.3}}
+/* ── MOBILE ─────────────────────────────────────────────────── */
+@media(max-width:768px){
+
+/* GLOBAL OVERFLOW LOCK */
+html,body{overflow-x:hidden;width:100%;position:relative}
+.container,section,nav,footer,#hero{max-width:100vw;overflow-x:hidden}
+*{box-sizing:border-box}
+
+/* BETA BAR */
+#beta-bar{gap:6px;padding:0 .5rem}
+#beta-bar .bb-text{font-size:9px;letter-spacing:.1em}
+#beta-bar .bb-tag{display:none}
+#beta-bar .bb-dot{width:3px;height:3px}
+
+/* NAV */
+nav{padding:0 1rem;height:56px;top:26px}
+.nav-links{display:none}
+.nav-wm{font-size:17px}
+.nav-icon{width:28px;height:28px;font-size:12px}
+
+/* CONTAINER */
+.container{padding:0 1.125rem;width:100%}
+
+/* HERO */
+#hero{min-height:100svh;padding-top:82px;padding-bottom:2.5rem;align-items:flex-start}
+.hero-content{padding:2rem 1.125rem 0;width:100%}
+.hero-eyebrow{font-size:9px;letter-spacing:.12em;margin-bottom:.75rem}
+.hero-h1{font-size:clamp(54px,17vw,72px);line-height:.92}
+.hero-sub{font-size:14px;margin-top:1rem;max-width:100%;line-height:1.6}
+.hero-soul{font-size:15px;margin-top:1rem}
+.hero-actions{flex-direction:column;align-items:stretch;gap:.75rem;margin-top:1.5rem}
+.btn-primary{width:100%;text-align:center;font-size:14px;padding:13px}
+.btn-ghost{justify-content:center}
+.hero-badge{position:relative;bottom:auto;right:auto;margin:2rem auto 0;display:table}
+.hero-vline{display:none}
+.hero-glow1,.hero-glow2{width:250px;height:250px}
+
+/* SECTION SPACING */
+#story,#work,#services,#community,#contact{padding:3.5rem 0}
+.sec-title{font-size:clamp(36px,11vw,50px);line-height:.95}
+.eyebrow{font-size:9px;letter-spacing:.14em}
+
+/* STORY */
+.story-grid{display:flex;flex-direction:column;gap:0;margin-top:1.75rem}
+.story-left{position:static}
+.story-phase{font-size:9px;margin-bottom:.75rem}
+.story-big{font-size:clamp(32px,10vw,44px);line-height:.92}
+.story-pull{padding:1.125rem;margin-top:1.25rem}
+.story-pull p{font-size:13px;line-height:1.65}
+.story-pull cite{font-size:9px;margin-top:8px}
+.team-section{display:none}
+.timeline{margin-top:2rem}
+.tl-spine{width:28px}
+.tl-body{min-width:0;padding:0 0 1.5rem .875rem}
+.tl-era{font-size:8px;margin-bottom:3px}
+.tl-h{font-size:16px;line-height:1.15}
+.tl-p{display:none}
+.tl-truth{font-size:11px;margin-top:5px}
+.tl-dot{width:10px;height:10px}
+.tl-dot.final{width:13px;height:13px}
+
+/* WORK */
+.work-hdr{flex-direction:column;align-items:flex-start;gap:.75rem}
+.proj-grid{display:flex;flex-direction:column;gap:1rem;margin-top:1.75rem}
+.proj-card{border-radius:10px}
+.proj-thumb{height:140px}
+.proj-logo{font-size:28px}
+.proj-body{padding:1rem}
+.proj-title{font-size:20px}
+.proj-type{font-size:9px;margin-top:2px}
+.proj-desc{display:none}
+.proj-foot{flex-direction:row;align-items:center;justify-content:space-between;margin-top:.875rem;padding-top:.875rem}
+.proj-stack{display:none}
+.proj-link{font-size:12px;white-space:nowrap}
+
+/* SERVICES */
+.svc-intro{display:none}
+.cap-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:1.75rem}
+.cap-card{padding:1rem 1.125rem;border-radius:10px}
+.cap-icon{font-size:20px;margin-bottom:6px}
+.cap-title{font-size:15px}
+.cap-sub{font-size:9px;margin-bottom:0}
+.cap-desc{display:none}
+.cap-tools{display:none}
+.support-strip{display:flex;flex-direction:column;gap:1.125rem;padding:1.25rem 1.125rem;border-radius:10px;margin-bottom:1.75rem}
+.support-item+.support-item{padding-left:0;border-left:none;border-top:1px solid rgba(77,158,232,.1);padding-top:1.125rem}
+.sup-icon{font-size:20px}
+.sup-title{font-size:15px}
+.sup-desc{font-size:12.5px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.price-grid{display:flex;flex-direction:column;gap:8px}
+.price-card{padding:1.125rem 1rem;border-radius:10px}
+.price-card.feat::before{font-size:7px;padding:2px 6px;top:10px;right:10px}
+.price-tier{font-size:18px}
+.price-range{font-size:24px;margin:5px 0 3px}
+.price-period{font-size:10px;line-height:1.35}
+.price-div{margin:.875rem 0}
+.price-feats li:nth-child(n+4){display:none}
+.price-feats li{font-size:11.5px;gap:6px}
+.price-cta{font-size:12px;padding:9px;margin-top:1rem}
+.guarantee{flex-direction:column;gap:1.25rem;padding:1.25rem 1.125rem;border-radius:10px}
+.guar-text h3{font-size:20px}
+.guar-text p{font-size:12.5px;line-height:1.6;max-width:100%}
+.guar-badge{border-left:none;border-top:1px solid rgba(255,255,255,.1);padding-left:0;padding-top:1rem;width:100%}
+.guar-badge-txt{font-size:13px}
+
+/* COMMUNITY */
+#community{padding:3.5rem 0}
+#community::before,#community::after{width:200px;height:200px}
+.comm-hero{margin-bottom:2rem;padding:0}
+.comm-hero .sec-title{font-size:clamp(36px,11vw,50px)}
+.comm-manifesto{font-size:13.5px;line-height:1.65;margin-top:1rem}
+.comm-creed{padding:1.25rem 1.125rem;margin-bottom:2rem;border-radius:10px}
+.comm-creed-text{font-size:clamp(14px,3.8vw,17px);line-height:1.45}
+.comm-creed-attr{font-size:8.5px;margin-top:.875rem}
+.strider-grid{display:none}
+.striders-wall{overflow:hidden;max-width:100%;margin-bottom:2rem}
+.wall-label{font-size:9px;letter-spacing:.16em}
+.ticker-wrap{gap:8px}
+.ticker-item{padding:7px 12px;gap:7px;border-radius:6px}
+.ti-avatar{width:22px;height:22px;font-size:10px;flex-shrink:0}
+.ti-name{font-size:11px}
+.ti-tag{font-size:8px}
+.comm-promise{display:none}
+.comm-join{padding:2rem 1.125rem;border-radius:10px;text-align:center}
+.comm-join h3{font-size:clamp(26px,9vw,36px);line-height:1}
+.comm-join p{font-size:13px;line-height:1.6;margin-top:.75rem;max-width:100%}
+.comm-join-btn{width:100%;text-align:center;padding:13px 20px;font-size:14px;margin-top:1.25rem;display:block}
+
+/* HIDE BODY TEXT — headlines only on mobile */
+.sc-body{display:none}
+.cp-body{display:none}
+.sup-desc{display:none}
+
+/* TIGHTEN CARD PADDING since body is gone */
+.strider-cell{padding:1.25rem 1.125rem}
+.cp-card{padding:1rem 1.125rem}
+.sc-number{font-size:32px;margin-bottom:.25rem}
+.sc-title{font-size:16px;line-height:1.2}
+.cp-icon{font-size:22px;margin-bottom:6px}
+.cp-title{font-size:16px}
+.sup-title{font-size:15px}
+.sup-icon{font-size:20px}
+
+/* CONTACT */
+#contact{padding:3.5rem 0 3rem}
+.contact-grid{display:flex;flex-direction:column;gap:1.75rem;margin-top:1.75rem}
+.contact-h{font-size:clamp(42px,14vw,58px);line-height:.92}
+.contact-p{font-size:13px;max-width:100%;line-height:1.65;margin-top:.875rem}
+.promises{margin-top:1.25rem;gap:7px}
+.promise{font-size:11px;line-height:1.4}
+.cf{gap:12px}
+.form-row{display:flex;flex-direction:column;gap:12px}
+.fg label{font-size:9px}
+.fg input,.fg textarea,.fg select{font-size:16px;padding:11px 13px}
+.fg textarea{min-height:100px}
+.form-btn{width:100%;text-align:center;padding:13px;font-size:14px;align-self:stretch}
+
+/* FOOTER */
+footer{padding:1.75rem 0 1.25rem}
+.foot-inner{flex-direction:column;align-items:center;text-align:center;gap:.875rem}
+.foot-logo{font-size:17px}
+.foot-tag{font-size:9px}
+.foot-guar{font-size:10px}
+.foot-copy{text-align:center;font-size:10px}
+.foot-strider-badge{font-size:8.5px;padding:4px 12px}
+
+}</style>
+</head>
+<body>
+
+<!-- NAV -->
+
+
+<!-- BETA BAR -->
+<div id="beta-bar">
+  <div class="bb-dot"></div>
+  <div class="bb-text">Now Striding into Beta</div>
+  <div class="bb-divider">·</div>
+  <div class="bb-tag">A StrideSide Original · 2025</div>
+  <div class="bb-dot"></div>
+</div>
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="nav-icon">SS</div>
+    <div class="nav-wm">STRIDE<span>SIDE</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#story">Story</a></li>
+    <li><a href="#community">Striders</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact" class="nav-cta">Let's Stride</a></li>
+  </ul>
+</nav>
+
+<!-- HERO — THE WARM UP -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Phase 01 — The Warm Up &nbsp;·&nbsp; Digital Products &amp; Services Studio</div>
+    <h1 class="hero-h1">
+      Wind Up.<br>
+      Stride.<br>
+      <span class="strike">Strike.</span>
+    </h1>
+    <p class="hero-sub">
+      Not a web agency. A <strong>studio</strong> — built to move beside you. Websites, web apps, mobile apps, and AI-powered tools. Boutique. Personalized. <strong>Always on the RightSide.</strong>
+    </p>
+    <div class="hero-soul">Side by side. Stride by stride. <span style="color:var(--orange)">StrideSide.</span></div>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Let's Stride →</a>
+      <a href="#story" class="btn-ghost">Our Story ↓</a>
+    </div>
+  </div>
+  <div class="hero-badge">
+    <div class="hero-badge-inner">
+      <div class="hero-badge-num">2<span>+</span></div>
+      <div class="hero-badge-lbl">Live Products</div>
+    </div>
+  </div>
+  <div class="hero-vline"></div>
+</section>
+
+<!-- STORY — THE WIND UP -->
+
+<section id="story">
+  <div class="container">
+    <div class="eyebrow reveal">Phase 02 — The Wind Up</div>
+    <h2 class="sec-title reveal d1">The Founder's<br><span class="o">Stride</span></h2>
+
+    <div class="story-grid">
+      <div class="story-left reveal">
+        <div class="story-phase">Loading the power</div>
+        <div class="story-big">
+          I Needed
+          <span class="a">Someone</span>
+          StrideSide.
+        </div>
+        <div class="story-pull">
+          <p>"Every stride I ever took — I took alone. The restaurant. The bankruptcy. The years grinding and believing when no one else did. I had the vision. I had the work ethic. What I didn't have was a team right beside me. StrideSide is what I needed then. It's what I built now."</p>
+          <cite>— James Emilio · Founder</cite>
+        </div>
+        <div class="team-section">
+          <div class="team-lbl">The Bullpen — Your Striders</div>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="tc-icon">🤖</div>
+              <h4>AI Tools</h4>
+              <div class="tc-role">Always in the pen</div>
+              <p>Claude and custom AI. The engine that never sleeps, never loses focus, never leaves your side.</p>
+            </div>
+            <div class="team-card">
+              <div class="tc-icon">⚡</div>
+              <h4>The Builders</h4>
+              <div class="tc-role">Expert Striders</div>
+              <p>Developers and designers called in exactly when the project needs them. Pure delivery.</p>
+            </div>
+            <div class="team-card">
+              <div class="tc-icon">🎯</div>
+              <h4>Jimmy Jam</h4>
+              <div class="tc-role">Founder · Strider #1</div>
+              <p>The pitcher from the bullpen. Runners on base. Maximum pressure. Been here before. Delivers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline reveal d2">
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot on"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-era">Age 29 · The dream</div>
+            <div class="tl-h">Emilio's Almost Famous</div>
+            <div class="tl-p">Acquired the restaurant. Believed the arrival had come. The biggest swing yet — taken entirely alone on belief and will.</div>
+            <div class="tl-truth">The vision was right. The team wasn't there.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-era">Two years later · The first great stride</div>
+            <div class="tl-h">Bankruptcy. Rebuilt.</div>
+            <div class="tl-p">Closed. Filed. Fought through ADHD, depression, anxiety. Still standing. Still moving. The stride through adversity that shaped everything that followed.</div>
+            <div class="tl-truth">Striding alone is survivable. But it costs everything.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot b on"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-era">The plan · Built with Brian</div>
+            <div class="tl-h">The Bullpen Tavern</div>
+            <div class="tl-p">The most complete vision yet — built side by side with Brian Connelly. For the first time, the energy of having someone beside you. The stride felt completely different.</div>
+            <div class="tl-truth">The right vision. The wrong timing. The right lesson.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot b"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-era">The grind · Process &amp; discipline</div>
+            <div class="tl-h">memoryblue SDR</div>
+            <div class="tl-p">Process. Persistence. The long game. Every no is one step closer to yes. The SDR discipline that makes every delivery possible.</div>
+            <div class="tl-truth">Learning to trust the system. Building the approach.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot final"></div></div>
+          <div class="tl-body">
+            <div class="tl-era">Right now · The delivery</div>
+            <div class="tl-h o">StrideSide.</div>
+            <div class="tl-p">The studio built on one truth — <strong>nobody strides as far alone as they do with the right team beside them.</strong> The pitcher strides to the mound. Runners on base. Maximum pressure. He delivers. That's StrideSide. That's what you get.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="community">
+  <div class="container">
+
+    <div class="comm-hero reveal">
+      <div class="eyebrow" style="justify-content:center;color:var(--orange);">Phase 05 — The Striders</div>
+      <h2 class="sec-title">Once a Strider,<br><span class="o">Always a Strider.</span></h2>
+      <p class="comm-manifesto">
+        This is not a client list. This is not a portfolio. This is a <strong>community of people who refused to stride alone</strong> — and found the team that strided right beside them. Every project we complete adds another Strider to the family. Every Strider carries the same truth: <strong>forward motion, right beside you, now and forever.</strong>
+      </p>
+    </div>
+
+    <div class="comm-creed reveal">
+      <div class="comm-creed-text">
+        "You never stop making strides. This isn't the end — this is the start of the journey. Distinctive. Driven. Patient. A helpful hand to anyone in need. <span class="o">Longevity. Relatability. Visibility.</span> Forward motion. Right beside you."
+      </div>
+      <div class="comm-creed-attr">— The Founder's Creed · James Emilio · The Creed Every Strider Carries</div>
+      <div style="margin-top:1.5rem;font-family:var(--fd);font-weight:700;font-size:clamp(18px,2vw,22px);letter-spacing:.06em;color:var(--orange);font-style:italic;">Side by side. Stride by stride. StrideSide.</div>
+    </div>
+
+    <!-- WHAT IT MEANS -->
+    <div class="strider-grid">
+      <div class="strider-cell reveal d1">
+        <div class="sc-number">01</div>
+        <div class="sc-title">You Are Never<br>Left Behind</div>
+        <div class="sc-body">The moment you become a Strider, you have a team. <strong>Not a vendor. Not a contractor. A team.</strong> One that answers, one that shows up, one that remembers your business and your vision — launch day, six months later, a year down the road. The relationship doesn't end when the invoice is paid.</div>
+      </div>
+      <div class="strider-cell reveal d2">
+        <div class="sc-number">02</div>
+        <div class="sc-title">You Grow.<br>We Grow.</div>
+        <div class="sc-body">Striders don't stand still — and neither do we. <strong>As your business evolves, your product evolves with it.</strong> New features, new markets, new ideas — we're already beside you when they come. StrideSide grows with every Strider we add, and every Strider benefits from everything we learn building for the community.</div>
+      </div>
+      <div class="strider-cell reveal d3">
+        <div class="sc-number">03</div>
+        <div class="sc-title">You Have<br>A Voice Here</div>
+        <div class="sc-body">Striders shape what StrideSide builds next. <strong>Your feedback, your needs, your industry — they become our roadmap.</strong> We are not building a product catalog. We are building a living studio that evolves with the people it serves. If you're a Strider, you're not a client. You're a collaborator.</div>
+      </div>
+      <div class="strider-cell reveal d1">
+        <div class="sc-number">04</div>
+        <div class="sc-title">We're All<br>In The Bullpen</div>
+        <div class="sc-body">Jimmy Jam came out of the bullpen alone. <strong>StrideSide exists so no one has to do that again.</strong> Striders have each other — a network of builders, founders, entrepreneurs, and operators who all chose to stride together instead of grind in isolation. That's the community. That's the pen.</div>
+      </div>
+      <div class="strider-cell reveal d2">
+        <div class="sc-number">05</div>
+        <div class="sc-title">The Stride<br>Never Stops</div>
+        <div class="sc-body">StrideSide is not a sprint. <strong>It's a long game — built for longevity.</strong> The businesses we build beside will still be running five, ten, twenty years from now. The Striders who trusted us first will be our longest partnerships. This studio is built to last because the people we build for deserve something that lasts.</div>
+      </div>
+      <div class="strider-cell reveal d3">
+        <div class="sc-number">06</div>
+        <div class="sc-title">Forward Motion.<br>Always.</div>
+        <div class="sc-body">Every Strider carries the same philosophy — <strong>you don't stop when it gets hard, you stride through it.</strong> We've been through the fire. We know what it costs to build something real without the right support. That's why the support we give is the support we always needed. No Strider strides alone.</div>
+      </div>
+    </div>
+
+    <!-- STRIDER TICKER -->
+    <div class="striders-wall reveal">
+      <div class="wall-label">Striders — Growing Every Day</div>
+      <div class="ticker-wrap">
+        <div class="ticker-item"><div class="ti-avatar">JE</div><div><div class="ti-name">James Emilio</div><div class="ti-tag">Founder · Strider #1</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar b">BC</div><div><div class="ti-name">Brian Connelly</div><div class="ti-tag">Partner · Strider #2</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar d">DD</div><div><div class="ti-name">DDML Community</div><div class="ti-tag">MLB The Show 26 · Active</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar" style="background:#9B5CF6">GG</div><div><div class="ti-name">GameGrind Players</div><div class="ti-tag">Competitive Gaming · Active</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar b">SS</div><div><div class="ti-name">StrideSide Studio</div><div class="ti-tag">The Bullpen · Always Live</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar" style="background:#2a6e4a">YN</div><div><div class="ti-name">Your Name</div><div class="ti-tag">Future Strider · Waiting for you</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar">JE</div><div><div class="ti-name">James Emilio</div><div class="ti-tag">Founder · Strider #1</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar b">BC</div><div><div class="ti-name">Brian Connelly</div><div class="ti-tag">Partner · Strider #2</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar d">DD</div><div><div class="ti-name">DDML Community</div><div class="ti-tag">MLB The Show 26 · Active</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar" style="background:#9B5CF6">GG</div><div><div class="ti-name">GameGrind Players</div><div class="ti-tag">Competitive Gaming · Active</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar b">SS</div><div><div class="ti-name">StrideSide Studio</div><div class="ti-tag">The Bullpen · Always Live</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar" style="background:#2a6e4a">YN</div><div><div class="ti-name">Your Name</div><div class="ti-tag">Future Strider · Waiting for you</div></div></div>
+      </div>
+    </div>
+
+    <!-- COMMUNITY PROMISE CARDS -->
+    <div class="comm-promise">
+      <div class="cp-card orange reveal d1">
+        <div class="cp-icon">🔥</div>
+        <div class="cp-title">Built in the Fire</div>
+        <div class="cp-body">StrideSide wasn't born in a boardroom. It was built by someone who <strong>lost everything, rebuilt from nothing, and learned exactly what it feels like to need a team and not have one.</strong> That experience is baked into every client relationship, every support call, every late-night fix before your launch. We don't just understand the struggle — we've lived it.</div>
+      </div>
+      <div class="cp-card reveal d2">
+        <div class="cp-icon">🤝</div>
+        <div class="cp-title">Referred by Striders</div>
+        <div class="cp-body">The best way to become a Strider is to know one. <strong>Every client we serve becomes an ambassador for the community</strong> — not because we ask them to, but because the experience earns it. We're building a studio where the work speaks for itself and the relationships last longer than any project. Word of mouth is our best marketing because our Striders are our best story.</div>
+      </div>
+      <div class="cp-card reveal d1">
+        <div class="cp-icon">📈</div>
+        <div class="cp-title">Striders Scale Together</div>
+        <div class="cp-body">When one Strider grows, we all learn. <strong>The tools we build, the patterns we discover, the breakthroughs we find</strong> — they flow back into the studio and raise the ceiling for every project that follows. Being a Strider means benefiting from a collective intelligence that gets sharper with every build. You're not just getting a product. You're getting everything we've learned building for everyone who came before you.</div>
+      </div>
+      <div class="cp-card orange reveal d2">
+        <div class="cp-icon">🏆</div>
+        <div class="cp-title">The Long Game</div>
+        <div class="cp-body">Jimmy Jam built StrideSide on the philosophy of <strong>longevity over everything.</strong> Not the fastest buck. Not the biggest client. The deepest relationships, the strongest work, the most trusted brand in the boutique studio space. Every Strider who joins this community is a vote for that philosophy. You're not just hiring a studio. <strong>You're betting on the long game. So are we.</strong></div>
+      </div>
+    </div>
+
+    <!-- JOIN BANNER -->
+    <div class="comm-join reveal">
+      <h3>Ready to Become<br><span>a Strider?</span></h3>
+      <p>The community starts with one conversation. Tell us what you're building. Tell us where you want to go. We'll be right beside you — from the first message to the final delivery and every stride after that.</p>
+      <a href="#contact" class="comm-join-btn">Join the Striders →</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="eyebrow reveal">Phase 04 — The Delivery</div>
+    <h2 class="sec-title reveal d1">What We Build.<br><span class="o">What It Costs.</span></h2>
+
+    <div class="svc-intro">
+      <div class="svc-text reveal d2">
+        <p>Most people hear "web studio" and picture an agency that hands you a template, sends a bill, and disappears. <strong>That is not StrideSide.</strong></p>
+        <p>We sit beside you from the first conversation to the final launch — and stay beside you after. We don't just build the thing. We explain it, guide you through it, and make sure you actually understand what you own when we're done. No tech jargon. No unanswered emails. No surprises.</p>
+        <p>Every build is AI-assisted — which means faster timelines, smarter architecture, and capabilities that most boutique studios charge three times as much to deliver. <strong>You get more. You pay less. You're never left alone.</strong></p>
+      </div>
+      <div class="svc-text reveal d3">
+        <p style="font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin-bottom:1rem;margin-top:0;">Not sure what you need?</p>
+        <p>That's exactly what the first conversation is for. You don't need to know whether you need a "web app" or a "mobile app" or an "AI integration" before you reach out. You need to know what problem you're trying to solve. We handle the rest — and we'll explain every decision in plain English so you're never in the dark on your own product.</p>
+        <p style="margin-top:1rem;"><strong>That's the StrideSide difference.</strong> Most studios build it and leave. We build it, teach it, support it, and stride with you.</p>
+      </div>
+    </div>
+
+    <!-- CAPABILITY CARDS -->
+    <div class="cap-grid">
+
+      <div class="cap-card reveal d1">
+        <div class="cap-icon">🌐</div>
+        <div class="cap-title">Websites</div>
+        <div class="cap-sub">Design · Build · Launch</div>
+        <div class="cap-desc">Custom-designed websites built to represent your brand, convert visitors, and work perfectly on every device. No page builders. No Squarespace. Real code, real craft, real results. We design it, build it, and walk you through how to use it — so you're never dependent on us to make a simple update.</div>
+        <div class="cap-tools">
+          <span class="ctool">React</span>
+          <span class="ctool">Next.js</span>
+          <span class="ctool">HTML/CSS/JS</span>
+          <span class="ctool">Figma</span>
+          <span class="ctool">Webflow</span>
+        </div>
+      </div>
+
+      <div class="cap-card reveal d2">
+        <div class="cap-icon">⚙️</div>
+        <div class="cap-title">Web Apps</div>
+        <div class="cap-sub">Portals · Platforms · Tools</div>
+        <div class="cap-desc">When a website isn't enough — you need something that actually *does* something. League management platforms. Client portals. Booking systems. Internal dashboards. Custom tools that automate what you're currently doing manually. We spec it, build it, test it, and guide you through every feature so launch day feels like a celebration, not a panic.</div>
+        <div class="cap-tools">
+          <span class="ctool">React</span>
+          <span class="ctool">Node.js</span>
+          <span class="ctool">Supabase</span>
+          <span class="ctool">Firebase</span>
+          <span class="ctool">PostgreSQL</span>
+        </div>
+      </div>
+
+      <div class="cap-card reveal d3">
+        <div class="cap-icon">📱</div>
+        <div class="cap-title">Mobile Apps</div>
+        <div class="cap-sub">iOS · Android · Cross-Platform</div>
+        <div class="cap-desc">Real apps in the App Store and Google Play — not just a website that looks like an app. Built cross-platform so you're not paying twice. We handle the technical side: store submissions, push notifications, offline functionality. You focus on your users. We handle the build and make sure you understand how to manage and update it going forward.</div>
+        <div class="cap-tools">
+          <span class="ctool">React Native</span>
+          <span class="ctool">Expo</span>
+          <span class="ctool">iOS</span>
+          <span class="ctool">Android</span>
+        </div>
+      </div>
+
+      <div class="cap-card reveal d1">
+        <div class="cap-icon">🤖</div>
+        <div class="cap-title">AI Integrations</div>
+        <div class="cap-sub">Chatbots · Automation · Smart Tools</div>
+        <div class="cap-desc">AI isn't a buzzword here — it's in every build from day one. We integrate real AI features into your product: chatbots that answer your customers 24/7, lead qualification tools that work while you sleep, AI assistants embedded directly in your site. Powered by Claude API, OpenAI, and custom models. We explain exactly how it works so you can own it confidently.</div>
+        <div class="cap-tools">
+          <span class="ctool">Claude API</span>
+          <span class="ctool">OpenAI</span>
+          <span class="ctool">LangChain</span>
+          <span class="ctool">Zapier</span>
+          <span class="ctool">Make</span>
+        </div>
+      </div>
+
+      <div class="cap-card reveal d2">
+        <div class="cap-icon">🛒</div>
+        <div class="cap-title">E-Commerce</div>
+        <div class="cap-sub">Shopify · WooCommerce · Custom</div>
+        <div class="cap-desc">Online stores built to sell — with the platform that fits your business, not the one that's easiest for us. Shopify for speed and scalability. WooCommerce for flexibility. Custom cart for full control. We build the store, set up your payment processing, connect your inventory, and train you on how to manage it yourself from day one.</div>
+        <div class="cap-tools">
+          <span class="ctool">Shopify</span>
+          <span class="ctool">WooCommerce</span>
+          <span class="ctool">Stripe</span>
+          <span class="ctool">PayPal</span>
+        </div>
+      </div>
+
+      <div class="cap-card reveal d3">
+        <div class="cap-icon">🛡️</div>
+        <div class="cap-title">Care Plans</div>
+        <div class="cap-sub">Monthly Retainer · Always On</div>
+        <div class="cap-desc">Your product doesn't stop after launch day — and neither do we. Monthly care plans cover updates, security patches, performance monitoring, SEO improvements, and new feature additions. Think of it as having a tech team on call without the full-time salary. One point of contact. Fast response. No ticket queues. Just your Strider, right beside you.</div>
+        <div class="cap-tools">
+          <span class="ctool">Monthly Updates</span>
+          <span class="ctool">SEO</span>
+          <span class="ctool">Performance</span>
+          <span class="ctool">Priority Access</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SUPPORT STRIP -->
+    <div class="support-strip reveal">
+      <div class="support-item">
+        <div class="sup-icon">📞</div>
+        <div class="sup-title">Real Guidance</div>
+        <div class="sup-desc">Every project includes a dedicated onboarding walkthrough. We explain what we built, how it works, and how you manage it — in plain English. <strong>No jargon. No confusion. No dependency.</strong> You own your product and you understand it.</div>
+      </div>
+      <div class="support-item">
+        <div class="sup-icon">⚡</div>
+        <div class="sup-title">Fast Response</div>
+        <div class="sup-desc">You will never chase us. <strong>24-hour response guaranteed</strong> on every project and retainer. Direct line to your Strider — not a support ticket system, not a chatbot, not an overseas help desk. A real person who built your product.</div>
+      </div>
+      <div class="support-item">
+        <div class="sup-icon">🎯</div>
+        <div class="sup-title">Always Beside You</div>
+        <div class="sup-desc">Launch is not the finish line — it's the start. <strong>StrideSide stays beside you</strong> post-launch: monitoring, fixing, improving, and growing your product as your business grows. We're not a vendor. We're your tech team.</div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <div class="price-lbl reveal">Pricing Tiers — Pick Your Stride</div>
+    <div class="price-grid">
+      <div class="price-card reveal d1">
+        <div class="price-tier">Launch</div>
+        <div class="price-range">$1.5K–$3.5K</div>
+        <div class="price-period">One-time · Perfect for: small businesses, personal brands, landing pages</div>
+        <div class="price-div"></div>
+        <ul class="price-feats">
+          <li>5–7 page fully custom site</li>
+          <li>Mobile-responsive on every device</li>
+          <li>Contact form, Google Maps, social links</li>
+          <li>Basic SEO setup so Google finds you</li>
+          <li>2-week turnaround</li>
+          <li>Full walkthrough on launch day</li>
+        </ul>
+        <a href="#contact" class="price-cta">Start here →</a>
+      </div>
+      <div class="price-card feat reveal d2">
+        <div class="price-tier">Growth</div>
+        <div class="price-range">$4K–$9K</div>
+        <div class="price-period">One-time · Perfect for: growing businesses, e-commerce, booking</div>
+        <div class="price-div"></div>
+        <ul class="price-feats">
+          <li>Full brand system + design language</li>
+          <li>Custom animations &amp; interactions</li>
+          <li>E-commerce, booking, or client portal</li>
+          <li>AI chatbot or lead-capture integration</li>
+          <li>Advanced SEO + analytics setup</li>
+          <li>Training session + documentation</li>
+        </ul>
+        <a href="#contact" class="price-cta">Let's build →</a>
+      </div>
+      <div class="price-card reveal d3">
+        <div class="price-tier">Studio</div>
+        <div class="price-range">$10K+</div>
+        <div class="price-period">One-time · Perfect for: full platforms, apps, complex products</div>
+        <div class="price-div"></div>
+        <ul class="price-feats">
+          <li>Full-stack web or mobile application</li>
+          <li>Database architecture &amp; API builds</li>
+          <li>AI-powered features &amp; automation</li>
+          <li>User auth, dashboards, admin panels</li>
+          <li>Retainer option post-launch</li>
+          <li>White-label available for agencies</li>
+        </ul>
+        <a href="#contact" class="price-cta">Let's stride →</a>
+      </div>
+      <div class="price-card reveal d4">
+        <div class="price-tier">Retainer</div>
+        <div class="price-range">$500–$2K</div>
+        <div class="price-period">Per month · Your tech team. On call. Always.</div>
+        <div class="price-div"></div>
+        <ul class="price-feats">
+          <li>Monthly updates &amp; new features</li>
+          <li>Security patches &amp; uptime monitoring</li>
+          <li>SEO improvements &amp; performance tuning</li>
+          <li>Direct Strider access — no ticket queues</li>
+          <li>Priority turnaround on all requests</li>
+          <li>Monthly report: what we did &amp; why</li>
+        </ul>
+        <a href="#contact" class="price-cta">Stay beside me →</a>
+      </div>
+    </div>
+
+    <div class="guarantee reveal">
+      <div class="guar-text">
+        <h3>Always on the RightSide.</h3>
+        <p>Transparent communication. Honest timelines. Plain-English explanations at every step. We don't disappear after launch. We don't hide behind jargon. We don't leave you with a product you don't understand. That's the StrideSide guarantee — and it's the reason every client becomes a Strider for life.</p>
+      </div>
+      <div class="guar-badge">
+        <div class="guar-badge-txt">Always on the RightSide.<span>Always StrideSide.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="container">
+    <div class="work-hdr">
+      <div>
+        <div class="eyebrow blue reveal">Phase 03 — The Stretch</div>
+        <h2 class="sec-title reveal d1">Current<br><span class="o">Strides</span></h2>
+      </div>
+      <div class="live-badge reveal d2"><div class="live-dot"></div>Live &amp; Active</div>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card reveal d1" onclick="window.open('DDML-API.html','_blank')" style="cursor:pointer;">
+        <div class="proj-thumb thumb-ddml">
+          <div class="proj-glow-ddml"></div>
+          <div class="proj-logo ddml-c">DD<span>ML</span></div>
+          <div class="proj-tag">● Live</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">DDML</div>
+          <div class="proj-type">MLB The Show 26 · League Management Platform</div>
+          <p class="proj-desc">Diamond Dynasty Money League — a full-stack league management platform for competitive MLB The Show 26 play. Real rosters, real standings, real stakes. Built from scratch.</p>
+          <div class="proj-foot">
+            <div class="proj-stack">
+              <span class="stag">Web App</span>
+              <span class="stag">League Mgmt</span>
+              <span class="stag">MLB The Show 26</span>
+            </div>
+            <a href="DDML-API.html" target="_blank" class="proj-link">View →</a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card reveal d2" onclick="window.open('gamegrind-landing.html','_blank')" style="cursor:pointer;">
+        <div class="proj-thumb thumb-gg">
+          <div class="proj-glow-gg"></div>
+          <div class="proj-logo gg-c">Game<span>Grind</span></div>
+          <div class="proj-tag">● Live</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">GameGrind.gg</div>
+          <div class="proj-type">Cinematic Gaming Competition Platform</div>
+          <p class="proj-desc">A cinematic gaming competition platform built for the next generation of competitive players. Immersive design, real competition infrastructure, a brand that plays as hard as its users.</p>
+          <div class="proj-foot">
+            <div class="proj-stack">
+              <span class="stag">Platform</span>
+              <span class="stag">Gaming</span>
+              <span class="stag">Competition</span>
+            </div>
+            <a href="gamegrind-landing.html" target="_blank" class="proj-link">View →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="eyebrow blue reveal">Phase 05 — Strike</div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div style="font-family:var(--fd);font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:1rem;font-style:italic;">Side by side. Stride by stride. StrideSide.</div>
+        <h2 class="contact-h">Let's<span>Stride.</span></h2>
+        <p class="contact-p">Tell me about your project. No commitment, no pressure — just a real conversation about what you're building and how StrideSide can be right beside you.</p>
+        <div class="promises">
+          <div class="promise">Response within 24 hours. Always.</div>
+          <div class="promise">No templates. Every project is custom.</div>
+          <div class="promise">Boutique attention from first conversation to final delivery.</div>
+          <div class="promise">Wind up. Stride. Strike. That's StrideSide.</div>
+        </div>
+      </div>
+      <form class="cf reveal d2" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="fg"><label>First Name</label><input type="text" placeholder="James" required></div>
+          <div class="fg"><label>Last Name</label><input type="text" placeholder="Emilio" required></div>
+        </div>
+        <div class="fg"><label>Email</label><input type="email" placeholder="you@yourstudio.com" required></div>
+        <div class="fg">
+          <label>What are you building?</label>
+          <select>
+            <option value="">Select a service...</option>
+            <option>Custom Website — Launch Tier</option>
+            <option>Custom Website — Growth Tier</option>
+            <option>Full-Stack App — Studio Tier</option>
+            <option>Mobile App</option>
+            <option>AI Integration</option>
+            <option>Monthly Retainer</option>
+            <option>Something else entirely</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Tell me about your project</label>
+          <textarea placeholder="What are you building, what problem does it solve, and what does success look like?"></textarea>
+        </div>
+        <button type="submit" class="form-btn">Let's Stride →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <div>
+        <div class="foot-logo">STRIDE<span>SIDE</span></div>
+        <div class="foot-tag">Forward motion. Right beside you.</div>
+      </div>
+      <div style="text-align:center">
+        <div class="foot-strider-badge"><div class="foot-strider-dot"></div>The Strider Community</div>
+        <div class="foot-guar">Always on the <span>RightSide</span>.<br>Always <span>StrideSide</span>.</div>
+        <div style="font-size:10px;color:rgba(255,255,255,.2);margin-top:6px;letter-spacing:.1em;text-transform:uppercase;">Once a Strider, Always a Strider.</div>
+      </div>
+      <div>
+        <div class="foot-copy">© 2025 StrideSide. All rights reserved.</div>
+        <div class="foot-copy" style="margin-top:4px;color:rgba(77,158,232,.3);font-size:10px;">strideside.co</div>
+        <div class="foot-copy" style="margin-top:4px;color:rgba(232,80,10,.4);font-size:10px;letter-spacing:.1em;text-transform:uppercase;">A StrideSide Original</div>
+        <div class="foot-copy" style="margin-top:6px;font-size:12px;font-style:italic;color:rgba(255,255,255,.2);letter-spacing:.04em;">Side by side. Stride by stride. StrideSide.</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+reveals.forEach(el => obs.observe(el));
+
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.style.background = window.scrollY > 40 ? 'rgba(6,8,16,.97)' : 'rgba(6,8,16,.88)';
+});
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-btn');
+  btn.textContent = 'Stride sent ✓';
+  btn.style.background = '#0a6e3a';
+  btn.disabled = true;
+}
+</script>
+</body>
+</html>
