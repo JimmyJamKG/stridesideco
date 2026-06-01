@@ -36,6 +36,20 @@ html{scroll-behavior:smooth}
 body{background:var(--black);color:#fff;font-family:var(--fb);font-weight:400;overflow-x:hidden;padding-top:26px}
 a{color:inherit;text-decoration:none}
 
+/* HAMBURGER & MOBILE NAV DRAWER */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:101}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s ease}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-nav{display:none;position:fixed;top:82px;left:0;right:0;bottom:0;z-index:99;background:rgba(6,8,16,.98);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;opacity:0;transition:opacity .3s ease}
+.mobile-nav.open{opacity:1}
+.mn-inner{display:flex;flex-direction:column;align-items:center;gap:2rem}
+.mn-inner a{font-family:var(--fd);font-weight:900;font-size:clamp(32px,10vw,48px);text-transform:uppercase;letter-spacing:-.02em;color:rgba(255,255,255,.5);transition:color .2s;text-decoration:none}
+.mn-inner a:hover{color:#fff}
+.mn-cta{color:var(--orange)!important;border:1px solid rgba(232,80,10,.4);padding:12px 36px;border-radius:8px;font-size:clamp(20px,6vw,28px)!important;margin-top:.5rem}
+.mn-cta:hover{background:rgba(232,80,10,.1)!important}
+
 /* NAV */
 nav{position:fixed;top:26px;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;background:rgba(6,8,16,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:background .3s}
 .nav-logo{display:flex;align-items:center;gap:10px}
@@ -127,7 +141,27 @@ section{position:relative;z-index:1}
 .live-badge{display:flex;align-items:center;gap:7px;background:rgba(232,80,10,.1);border:1px solid rgba(232,80,10,.25);border-radius:20px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
 .live-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 1.5s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
-.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:4rem}
+/* WORK FILTER BUTTONS */
+.work-filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:2.5rem;margin-bottom:.5rem}
+.wf-btn{background:transparent;border:1px solid var(--border);color:rgba(255,255,255,.4);font-family:var(--fd);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:8px 20px;border-radius:6px;cursor:pointer;transition:all .2s}
+.wf-btn:hover{border-color:var(--sky);color:var(--sky)}
+.wf-btn.active{background:var(--orange);border-color:var(--orange);color:#fff}
+/* WORK CATEGORY LABEL */
+.work-cat-label{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-top:3rem;margin-bottom:.5rem;display:flex;align-items:center;gap:10px}
+.work-cat-label::before{content:'';display:block;width:28px;height:1px;background:var(--sky)}
+/* COMING SOON CARDS */
+.coming-soon{opacity:.75;pointer-events:none}
+.coming-soon:hover{transform:none!important;border-color:var(--border)!important}
+.coming-thumb{background:linear-gradient(135deg,#0a0f1a 0%,#0d1428 50%,#080d18 100%)}
+.ai-thumb{background:linear-gradient(135deg,#0a0a18 0%,#100a28 50%,#080a14 100%)}
+.ecom-thumb{background:linear-gradient(135deg,#0a1410 0%,#0d2018 50%,#081410 100%)}
+.coming-glow{position:absolute;top:-50px;right:-50px;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(77,158,232,.15) 0%,transparent 65%)}
+.ai-glow{background:radial-gradient(circle,rgba(155,92,246,.2) 0%,transparent 65%)}
+.ecom-glow{background:radial-gradient(circle,rgba(48,208,128,.15) 0%,transparent 65%)}
+.coming-label{font-family:var(--fd);font-weight:900;font-size:22px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.15);z-index:1;text-align:center;border:1px solid rgba(255,255,255,.06);padding:12px 24px;border-radius:8px}
+.coming-stag{background:rgba(77,158,232,.08)!important;color:var(--sky)!important;border-color:rgba(77,158,232,.2)!important}
+.coming-link{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}
 .proj-card{border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--card);transition:transform .25s,border-color .25s;cursor:pointer}
 .proj-card:hover{transform:translateY(-6px);border-color:rgba(77,158,232,.4)}
 .proj-thumb{height:260px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
@@ -247,7 +281,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:3rem 0
 .strider-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);border-radius:14px;overflow:hidden;margin-bottom:5rem;position:relative;z-index:1}
 .strider-cell{background:rgba(0,26,78,.6);padding:2.5rem 2rem;transition:background .25s}
 .strider-cell:hover{background:rgba(0,26,78,.9)}
-.sc-number{font-family:var(--fd);font-weight:900;font-size:56px;line-height:1;color:rgba(232,80,10,.2);letter-spacing:-.03em;margin-bottom:.5rem}
+.sc-number{font-family:var(--fd);font-weight:900;font-size:56px;line-height:1;color:var(--orange);opacity:.55;letter-spacing:-.03em;margin-bottom:.5rem;transition:opacity .25s}
+.strider-cell:hover .sc-number{opacity:.85}
 .sc-title{font-family:var(--fd);font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:-.01em;color:#fff;line-height:1.1}
 .sc-body{font-size:13px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.7;margin-top:.75rem}
 .sc-body strong{color:#fff;font-weight:500}
@@ -278,8 +313,47 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:3rem 0
 .foot-strider-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,61,165,.3);border:1px solid rgba(77,158,232,.2);border-radius:20px;padding:6px 16px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin-bottom:6px}
 .foot-strider-dot{width:5px;height:5px;border-radius:50%;background:var(--sky)}
 
-/* ANIMATIONS */
+/* HERO MISSION STRIP */
+.hero-mission{margin-top:2rem;opacity:0;animation:fadeUp .7s .55s forwards}
+.hero-mission-phase{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.5rem;flex-wrap:wrap}
+.hmp-dot{width:4px;height:4px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.hero-mission-label{font-family:var(--fd);font-weight:700;font-size:18px;color:#fff;margin-bottom:1rem;letter-spacing:.02em}
+.hero-deliverables{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:1rem}
+.hd-tag{font-family:var(--fd);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(77,158,232,.1);border:1px solid rgba(77,158,232,.25);padding:5px 12px;border-radius:5px}
+.hd-div{color:rgba(255,255,255,.2);font-size:12px}
+.hero-promise{font-size:13px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.55);max-width:560px}
+.hero-promise em{color:var(--orange);font-style:italic;font-weight:400}
+
+/* STRIDER TEAM SECTION */
+#team{background:var(--surface);padding:9rem 0;border-top:1px solid var(--border)}
+.team-hdr{margin-bottom:4rem}
+.strider-team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:780px}
+.strider-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;display:flex;align-items:flex-start;gap:1.5rem;transition:border-color .25s,transform .25s}
+.strider-card:hover{border-color:rgba(232,80,10,.4);transform:translateY(-4px)}
+.strider-avatar{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:900;font-size:20px;color:#fff;flex-shrink:0;letter-spacing:-.02em}
+.sa-blue{background:linear-gradient(135deg,var(--blue),#0055cc)}
+.sa-orange{background:linear-gradient(135deg,var(--orange),#ff6422)}
+.strider-info{}
+.strider-name{font-family:var(--fd);font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:-.01em;color:#fff;line-height:1}
+.strider-num{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sky);margin-top:3px}
+.strider-title{font-size:12px;font-weight:500;color:rgba(255,255,255,.55);margin-top:8px;line-height:1.5}
+
+/* MOBILE SNAP SCROLL */
+@media(max-width:768px){
+html{scroll-snap-type:y mandatory;overflow-y:scroll}
+section,#hero{scroll-snap-align:start;scroll-snap-stop:always;min-height:100svh}
+footer{scroll-snap-align:start}
+}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+/* EXPANDABLE CARDS — UNIVERSAL SYSTEM */
+.expandable{cursor:pointer}
+.expandable .tc-body{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease,margin-top .3s ease;opacity:0;margin-top:0}
+.expandable.expanded .tc-body{max-height:400px;opacity:1;margin-top:8px}
+.tc-toggle{display:inline-block;font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-left:8px;vertical-align:middle;transition:color .2s;user-select:none;white-space:nowrap;cursor:pointer}
+.expandable.expanded .tc-toggle{color:var(--orange)}
+.cap-card.expanded .tc-body.cap-tools{padding-top:12px;border-top:1px solid var(--border)}
+.strider-card .strider-title{max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,opacity .3s ease,margin-top .3s ease;margin-top:0}
+.strider-card.expanded .strider-title{max-height:200px;opacity:1;margin-top:8px}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
@@ -311,6 +385,8 @@ html,body{overflow-x:hidden;width:100%;position:relative}
 /* NAV */
 nav{padding:0 1rem;height:56px;top:26px}
 .nav-links{display:none}
+.nav-hamburger{display:flex}
+.mobile-nav{display:flex}
 .nav-wm{font-size:17px}
 .nav-icon{width:28px;height:28px;font-size:12px}
 
@@ -332,7 +408,7 @@ nav{padding:0 1rem;height:56px;top:26px}
 .hero-glow1,.hero-glow2{width:250px;height:250px}
 
 /* SECTION SPACING */
-#story,#work,#services,#community,#contact{padding:3.5rem 0}
+#story,#work,#services,#community,#contact,#team{padding:3.5rem 0}
 .sec-title{font-size:clamp(36px,11vw,50px);line-height:.95}
 .eyebrow{font-size:9px;letter-spacing:.14em}
 
@@ -357,7 +433,10 @@ nav{padding:0 1rem;height:56px;top:26px}
 
 /* WORK */
 .work-hdr{flex-direction:column;align-items:flex-start;gap:.75rem}
-.proj-grid{display:flex;flex-direction:column;gap:1rem;margin-top:1.75rem}
+.work-filters{gap:7px;margin-top:1.5rem}
+.wf-btn{font-size:10px;padding:6px 13px}
+.work-cat-label{margin-top:1.5rem}
+.proj-grid{display:flex;flex-direction:column;gap:1rem;margin-top:1rem}
 .proj-card{border-radius:10px}
 .proj-thumb{height:140px}
 .proj-logo{font-size:28px}
@@ -368,6 +447,7 @@ nav{padding:0 1rem;height:56px;top:26px}
 .proj-foot{flex-direction:row;align-items:center;justify-content:space-between;margin-top:.875rem;padding-top:.875rem}
 .proj-stack{display:none}
 .proj-link{font-size:12px;white-space:nowrap}
+.coming-label{font-size:15px;padding:10px 16px}
 
 /* SERVICES */
 .svc-intro{display:none}
@@ -422,20 +502,52 @@ nav{padding:0 1rem;height:56px;top:26px}
 .comm-join p{font-size:13px;line-height:1.6;margin-top:.75rem;max-width:100%}
 .comm-join-btn{width:100%;text-align:center;padding:13px 20px;font-size:14px;margin-top:1.25rem;display:block}
 
-/* HIDE BODY TEXT — headlines only on mobile */
-.sc-body{display:none}
-.cp-body{display:none}
-.sup-desc{display:none}
+/* HIDE BODY TEXT — collapsed by default on mobile, expand still works */
+.sc-body{font-size:12px;line-height:1.6}
+.cp-body{font-size:12px;line-height:1.6}
+.sup-desc{font-size:12px;line-height:1.55}
 
-/* TIGHTEN CARD PADDING since body is gone */
-.strider-cell{padding:1.25rem 1.125rem}
+/* STRIDER GRID — show on mobile as single column accordion */
+.strider-grid{display:flex;flex-direction:column;gap:1px;border-radius:10px;margin-bottom:2rem}
+.strider-cell{padding:1rem 1.125rem}
+.sc-number{font-size:28px;margin-bottom:.2rem}
+.sc-title{font-size:15px;line-height:1.2;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.tc-toggle{font-size:8px;margin-left:0;flex-shrink:0}
+
+/* COMMUNITY PROMISE — show as single column on mobile */
+.comm-promise{display:flex;flex-direction:column;gap:10px}
 .cp-card{padding:1rem 1.125rem}
-.sc-number{font-size:32px;margin-bottom:.25rem}
-.sc-title{font-size:16px;line-height:1.2}
-.cp-icon{font-size:22px;margin-bottom:6px}
-.cp-title{font-size:16px}
-.sup-title{font-size:15px}
+.cp-icon{font-size:20px;margin-bottom:6px}
+.cp-title{font-size:15px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+
+/* SUPPORT STRIP expand on mobile */
+.sup-title{font-size:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
 .sup-icon{font-size:20px}
+
+/* CAP CARDS on mobile */
+.cap-title{font-size:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+
+/* Keep expanded text from overflowing on small screens */
+.expandable.expanded .tc-body{max-height:300px;font-size:12px;line-height:1.6}
+
+/* TIGHTEN CARD PADDING since body is collapsed */
+.cp-card{padding:1rem 1.125rem}
+
+/* TEAM MOBILE */
+#team{padding:3.5rem 0}
+.strider-team-grid{grid-template-columns:1fr;gap:1rem}
+.strider-card{padding:1.25rem;border-radius:10px;gap:1rem}
+.strider-avatar{width:44px;height:44px;font-size:16px;border-radius:9px}
+.strider-name{font-size:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.strider-title{font-size:11.5px;margin-top:6px}
+
+/* HERO MISSION MOBILE */
+.hero-mission{margin-top:1.25rem}
+.hero-mission-phase{font-size:10px;gap:7px}
+.hero-mission-label{font-size:15px;margin-bottom:.75rem}
+.hero-deliverables{gap:6px}
+.hd-tag{font-size:11px;padding:4px 10px}
+.hero-promise{font-size:12px}
 
 /* CONTACT */
 #contact{padding:3.5rem 0 3rem}
@@ -481,13 +593,29 @@ footer{padding:1.75rem 0 1.25rem}
     <div class="nav-wm">STRIDE<span>SIDE</span></div>
   </div>
   <ul class="nav-links">
-    <li><a href="#story">Story</a></li>
-    <li><a href="#community">Striders</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#work">Work</a></li>
+    <li><a href="#community">Striders</a></li>
+    <li><a href="#story">Story</a></li>
+    <li><a href="#team">Team</a></li>
     <li><a href="#contact" class="nav-cta">Let's Stride</a></li>
   </ul>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mn-inner">
+    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#work" onclick="closeMenu()">Work</a>
+    <a href="#community" onclick="closeMenu()">Striders</a>
+    <a href="#story" onclick="closeMenu()">Story</a>
+    <a href="#team" onclick="closeMenu()">Team</a>
+    <a href="#contact" onclick="closeMenu()" class="mn-cta">Let's Stride →</a>
+  </div>
+</div>
 
 <!-- HERO — THE WARM UP -->
 <section id="hero">
@@ -495,15 +623,40 @@ footer{padding:1.75rem 0 1.25rem}
   <div class="hero-glow1"></div>
   <div class="hero-glow2"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Phase 01 — The Warm Up &nbsp;·&nbsp; Digital Products &amp; Services Studio</div>
+    <div class="hero-eyebrow">Digital Products &amp; Services Studio &nbsp;·&nbsp; Built For Every Phase of Your Journey</div>
     <h1 class="hero-h1">
-      Wind Up.<br>
+      Strive.<br>
       Stride.<br>
-      <span class="strike">Strike.</span>
+      <span class="strike">Deliver.</span>
     </h1>
     <p class="hero-sub">
-      Not a web agency. A <strong>studio</strong> — built to move beside you. Websites, web apps, mobile apps, and AI-powered tools. Boutique. Personalized. <strong>Always on the RightSide.</strong>
+      Not a web agency. A <strong>studio</strong> — built to move beside you. Wherever you are in your journey, we stride with you and deliver.
     </p>
+
+    <!-- MISSION STRIP -->
+    <div class="hero-mission">
+      <div class="hero-mission-phase">
+        <span class="hmp-dot"></span>Just starting out.
+        <span class="hmp-dot"></span>Pushing through.
+        <span class="hmp-dot"></span>Already winning.
+      </div>
+      <div class="hero-mission-label">We stride with you at every phase.</div>
+      <div class="hero-deliverables">
+        <span class="hd-tag">Business Planning</span>
+        <span class="hd-div">·</span>
+        <span class="hd-tag">Websites</span>
+        <span class="hd-div">·</span>
+        <span class="hd-tag">Web Apps</span>
+        <span class="hd-div">·</span>
+        <span class="hd-tag">Mobile Apps</span>
+        <span class="hd-div">·</span>
+        <span class="hd-tag">AI Tools</span>
+        <span class="hd-div">·</span>
+        <span class="hd-tag">E-Commerce</span>
+      </div>
+      <p class="hero-promise">And wherever else your journey takes you — we're already there.<br><em>Don't see what you need? We'll learn it, build it, or find the way. No Strider gets left behind.</em></p>
+    </div>
+
     <div class="hero-soul">Side by side. Stride by stride. <span style="color:var(--orange)">StrideSide.</span></div>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Let's Stride →</a>
@@ -512,212 +665,13 @@ footer{padding:1.75rem 0 1.25rem}
   </div>
   <div class="hero-badge">
     <div class="hero-badge-inner">
-      <div class="hero-badge-num">2<span>+</span></div>
-      <div class="hero-badge-lbl">Live Products</div>
+      <div class="hero-badge-num">3<span>+</span></div>
+      <div class="hero-badge-lbl">Active Builds</div>
     </div>
   </div>
   <div class="hero-vline"></div>
 </section>
 
-<!-- STORY — THE WIND UP -->
-
-<section id="story">
-  <div class="container">
-    <div class="eyebrow reveal">Phase 02 — The Wind Up</div>
-    <h2 class="sec-title reveal d1">The Founder's<br><span class="o">Stride</span></h2>
-
-    <div class="story-grid">
-      <div class="story-left reveal">
-        <div class="story-phase">Loading the power</div>
-        <div class="story-big">
-          I Needed
-          <span class="a">Someone</span>
-          StrideSide.
-        </div>
-        <div class="story-pull">
-          <p>"Every stride I ever took — I took alone. The restaurant. The bankruptcy. The years grinding and believing when no one else did. I had the vision. I had the work ethic. What I didn't have was a team right beside me. StrideSide is what I needed then. It's what I built now."</p>
-          <cite>— James Emilio · Founder</cite>
-        </div>
-        <div class="team-section">
-          <div class="team-lbl">The Bullpen — Your Striders</div>
-          <div class="team-grid">
-            <div class="team-card">
-              <div class="tc-icon">🤖</div>
-              <h4>AI Tools</h4>
-              <div class="tc-role">Always in the pen</div>
-              <p>Claude and custom AI. The engine that never sleeps, never loses focus, never leaves your side.</p>
-            </div>
-            <div class="team-card">
-              <div class="tc-icon">⚡</div>
-              <h4>The Builders</h4>
-              <div class="tc-role">Expert Striders</div>
-              <p>Developers and designers called in exactly when the project needs them. Pure delivery.</p>
-            </div>
-            <div class="team-card">
-              <div class="tc-icon">🎯</div>
-              <h4>Jimmy Jam</h4>
-              <div class="tc-role">Founder · Strider #1</div>
-              <p>The pitcher from the bullpen. Runners on base. Maximum pressure. Been here before. Delivers.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline reveal d2">
-        <div class="tl-item">
-          <div class="tl-spine"><div class="tl-dot on"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-era">Age 29 · The dream</div>
-            <div class="tl-h">Emilio's Almost Famous</div>
-            <div class="tl-p">Acquired the restaurant. Believed the arrival had come. The biggest swing yet — taken entirely alone on belief and will.</div>
-            <div class="tl-truth">The vision was right. The team wasn't there.</div>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-era">Two years later · The first great stride</div>
-            <div class="tl-h">Bankruptcy. Rebuilt.</div>
-            <div class="tl-p">Closed. Filed. Fought through ADHD, depression, anxiety. Still standing. Still moving. The stride through adversity that shaped everything that followed.</div>
-            <div class="tl-truth">Striding alone is survivable. But it costs everything.</div>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-spine"><div class="tl-dot b on"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-era">The plan · Built with Brian</div>
-            <div class="tl-h">The Bullpen Tavern</div>
-            <div class="tl-p">The most complete vision yet — built side by side with Brian Connelly. For the first time, the energy of having someone beside you. The stride felt completely different.</div>
-            <div class="tl-truth">The right vision. The wrong timing. The right lesson.</div>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-spine"><div class="tl-dot b"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-era">The grind · Process &amp; discipline</div>
-            <div class="tl-h">memoryblue SDR</div>
-            <div class="tl-p">Process. Persistence. The long game. Every no is one step closer to yes. The SDR discipline that makes every delivery possible.</div>
-            <div class="tl-truth">Learning to trust the system. Building the approach.</div>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-spine"><div class="tl-dot final"></div></div>
-          <div class="tl-body">
-            <div class="tl-era">Right now · The delivery</div>
-            <div class="tl-h o">StrideSide.</div>
-            <div class="tl-p">The studio built on one truth — <strong>nobody strides as far alone as they do with the right team beside them.</strong> The pitcher strides to the mound. Runners on base. Maximum pressure. He delivers. That's StrideSide. That's what you get.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="community">
-  <div class="container">
-
-    <div class="comm-hero reveal">
-      <div class="eyebrow" style="justify-content:center;color:var(--orange);">Phase 05 — The Striders</div>
-      <h2 class="sec-title">Once a Strider,<br><span class="o">Always a Strider.</span></h2>
-      <p class="comm-manifesto">
-        This is not a client list. This is not a portfolio. This is a <strong>community of people who refused to stride alone</strong> — and found the team that strided right beside them. Every project we complete adds another Strider to the family. Every Strider carries the same truth: <strong>forward motion, right beside you, now and forever.</strong>
-      </p>
-    </div>
-
-    <div class="comm-creed reveal">
-      <div class="comm-creed-text">
-        "You never stop making strides. This isn't the end — this is the start of the journey. Distinctive. Driven. Patient. A helpful hand to anyone in need. <span class="o">Longevity. Relatability. Visibility.</span> Forward motion. Right beside you."
-      </div>
-      <div class="comm-creed-attr">— The Founder's Creed · James Emilio · The Creed Every Strider Carries</div>
-      <div style="margin-top:1.5rem;font-family:var(--fd);font-weight:700;font-size:clamp(18px,2vw,22px);letter-spacing:.06em;color:var(--orange);font-style:italic;">Side by side. Stride by stride. StrideSide.</div>
-    </div>
-
-    <!-- WHAT IT MEANS -->
-    <div class="strider-grid">
-      <div class="strider-cell reveal d1">
-        <div class="sc-number">01</div>
-        <div class="sc-title">You Are Never<br>Left Behind</div>
-        <div class="sc-body">The moment you become a Strider, you have a team. <strong>Not a vendor. Not a contractor. A team.</strong> One that answers, one that shows up, one that remembers your business and your vision — launch day, six months later, a year down the road. The relationship doesn't end when the invoice is paid.</div>
-      </div>
-      <div class="strider-cell reveal d2">
-        <div class="sc-number">02</div>
-        <div class="sc-title">You Grow.<br>We Grow.</div>
-        <div class="sc-body">Striders don't stand still — and neither do we. <strong>As your business evolves, your product evolves with it.</strong> New features, new markets, new ideas — we're already beside you when they come. StrideSide grows with every Strider we add, and every Strider benefits from everything we learn building for the community.</div>
-      </div>
-      <div class="strider-cell reveal d3">
-        <div class="sc-number">03</div>
-        <div class="sc-title">You Have<br>A Voice Here</div>
-        <div class="sc-body">Striders shape what StrideSide builds next. <strong>Your feedback, your needs, your industry — they become our roadmap.</strong> We are not building a product catalog. We are building a living studio that evolves with the people it serves. If you're a Strider, you're not a client. You're a collaborator.</div>
-      </div>
-      <div class="strider-cell reveal d1">
-        <div class="sc-number">04</div>
-        <div class="sc-title">We're All<br>In The Bullpen</div>
-        <div class="sc-body">Jimmy Jam came out of the bullpen alone. <strong>StrideSide exists so no one has to do that again.</strong> Striders have each other — a network of builders, founders, entrepreneurs, and operators who all chose to stride together instead of grind in isolation. That's the community. That's the pen.</div>
-      </div>
-      <div class="strider-cell reveal d2">
-        <div class="sc-number">05</div>
-        <div class="sc-title">The Stride<br>Never Stops</div>
-        <div class="sc-body">StrideSide is not a sprint. <strong>It's a long game — built for longevity.</strong> The businesses we build beside will still be running five, ten, twenty years from now. The Striders who trusted us first will be our longest partnerships. This studio is built to last because the people we build for deserve something that lasts.</div>
-      </div>
-      <div class="strider-cell reveal d3">
-        <div class="sc-number">06</div>
-        <div class="sc-title">Forward Motion.<br>Always.</div>
-        <div class="sc-body">Every Strider carries the same philosophy — <strong>you don't stop when it gets hard, you stride through it.</strong> We've been through the fire. We know what it costs to build something real without the right support. That's why the support we give is the support we always needed. No Strider strides alone.</div>
-      </div>
-    </div>
-
-    <!-- STRIDER TICKER -->
-    <div class="striders-wall reveal">
-      <div class="wall-label">Striders — Growing Every Day</div>
-      <div class="ticker-wrap">
-        <div class="ticker-item"><div class="ti-avatar">JE</div><div><div class="ti-name">James Emilio</div><div class="ti-tag">Founder · Strider #1</div></div></div>
-        <div class="ticker-item"><div class="ti-avatar b">BC</div><div><div class="ti-name">Brian Connelly</div><div class="ti-tag">Partner · Strider #2</div></div></div>
-        <div class="ticker-item"><div class="ti-avatar d">DD</div><div><div class="ti-name">DDML Community</div><div class="ti-tag">MLB The Show 26 · Active</div></div></div>
-        <div class="ticker-item"><div class="ti-avatar" style="background:#9B5CF6">GG</div><div><div class="ti-name">GameGrind Players</div><div class="ti-tag">Competitive Gaming · Active</div></div></div>
-        <div class="ticker-item"><div class="ti-avatar b">SS</div><div><div class="ti-name">StrideSide Studio</div><div class="ti-tag">The Bullpen · Always Live</div></div></div>
-        <div class="ticker-item"><div class="ti-avatar" style="background:#2a6e4a">YN</div><div><div class="ti-name">Your Name</div><div class="ti-tag">Future Strider · Waiting for you</div></div></div>
-        <div class="ticker-item"><div class="ti-avatar">JE</div><div><div class="ti-name">James Emilio</div><div class="ti-tag">Founder · Strider #1</div></div></div>
-        <div class="ticker-item"><div class="ti-avatar b">BC</div><div><div class="ti-name">Brian Connelly</div><div class="ti-tag">Partner · Strider #2</div></div></div>
-        <div class="ticker-item"><div class="ti-avatar d">DD</div><div><div class="ti-name">DDML Community</div><div class="ti-tag">MLB The Show 26 · Active</div></div></div>
-        <div class="ticker-item"><div class="ti-avatar" style="background:#9B5CF6">GG</div><div><div class="ti-name">GameGrind Players</div><div class="ti-tag">Competitive Gaming · Active</div></div></div>
-        <div class="ticker-item"><div class="ti-avatar b">SS</div><div><div class="ti-name">StrideSide Studio</div><div class="ti-tag">The Bullpen · Always Live</div></div></div>
-        <div class="ticker-item"><div class="ti-avatar" style="background:#2a6e4a">YN</div><div><div class="ti-name">Your Name</div><div class="ti-tag">Future Strider · Waiting for you</div></div></div>
-      </div>
-    </div>
-
-    <!-- COMMUNITY PROMISE CARDS -->
-    <div class="comm-promise">
-      <div class="cp-card orange reveal d1">
-        <div class="cp-icon">🔥</div>
-        <div class="cp-title">Built in the Fire</div>
-        <div class="cp-body">StrideSide wasn't born in a boardroom. It was built by someone who <strong>lost everything, rebuilt from nothing, and learned exactly what it feels like to need a team and not have one.</strong> That experience is baked into every client relationship, every support call, every late-night fix before your launch. We don't just understand the struggle — we've lived it.</div>
-      </div>
-      <div class="cp-card reveal d2">
-        <div class="cp-icon">🤝</div>
-        <div class="cp-title">Referred by Striders</div>
-        <div class="cp-body">The best way to become a Strider is to know one. <strong>Every client we serve becomes an ambassador for the community</strong> — not because we ask them to, but because the experience earns it. We're building a studio where the work speaks for itself and the relationships last longer than any project. Word of mouth is our best marketing because our Striders are our best story.</div>
-      </div>
-      <div class="cp-card reveal d1">
-        <div class="cp-icon">📈</div>
-        <div class="cp-title">Striders Scale Together</div>
-        <div class="cp-body">When one Strider grows, we all learn. <strong>The tools we build, the patterns we discover, the breakthroughs we find</strong> — they flow back into the studio and raise the ceiling for every project that follows. Being a Strider means benefiting from a collective intelligence that gets sharper with every build. You're not just getting a product. You're getting everything we've learned building for everyone who came before you.</div>
-      </div>
-      <div class="cp-card orange reveal d2">
-        <div class="cp-icon">🏆</div>
-        <div class="cp-title">The Long Game</div>
-        <div class="cp-body">Jimmy Jam built StrideSide on the philosophy of <strong>longevity over everything.</strong> Not the fastest buck. Not the biggest client. The deepest relationships, the strongest work, the most trusted brand in the boutique studio space. Every Strider who joins this community is a vote for that philosophy. You're not just hiring a studio. <strong>You're betting on the long game. So are we.</strong></div>
-      </div>
-    </div>
-
-    <!-- JOIN BANNER -->
-    <div class="comm-join reveal">
-      <h3>Ready to Become<br><span>a Strider?</span></h3>
-      <p>The community starts with one conversation. Tell us what you're building. Tell us where you want to go. We'll be right beside you — from the first message to the final delivery and every stride after that.</p>
-      <a href="#contact" class="comm-join-btn">Join the Striders →</a>
-    </div>
-
-  </div>
-</section>
 
 <section id="services">
   <div class="container">
@@ -740,12 +694,12 @@ footer{padding:1.75rem 0 1.25rem}
     <!-- CAPABILITY CARDS -->
     <div class="cap-grid">
 
-      <div class="cap-card reveal d1">
+      <div class="cap-card reveal d1 expandable" onclick="toggleCard(this)">
         <div class="cap-icon">🌐</div>
-        <div class="cap-title">Websites</div>
+        <div class="cap-title">Websites <span class="tc-toggle">+ More</span></div>
         <div class="cap-sub">Design · Build · Launch</div>
-        <div class="cap-desc">Custom-designed websites built to represent your brand, convert visitors, and work perfectly on every device. No page builders. No Squarespace. Real code, real craft, real results. We design it, build it, and walk you through how to use it — so you're never dependent on us to make a simple update.</div>
-        <div class="cap-tools">
+        <div class="tc-body cap-desc">Custom-designed websites built to represent your brand, convert visitors, and work perfectly on every device. No page builders. No Squarespace. Real code, real craft, real results. We design it, build it, and walk you through how to use it — so you're never dependent on us to make a simple update.</div>
+        <div class="tc-body cap-tools">
           <span class="ctool">React</span>
           <span class="ctool">Next.js</span>
           <span class="ctool">HTML/CSS/JS</span>
@@ -754,12 +708,12 @@ footer{padding:1.75rem 0 1.25rem}
         </div>
       </div>
 
-      <div class="cap-card reveal d2">
+      <div class="cap-card reveal d2 expandable" onclick="toggleCard(this)">
         <div class="cap-icon">⚙️</div>
-        <div class="cap-title">Web Apps</div>
+        <div class="cap-title">Web Apps <span class="tc-toggle">+ More</span></div>
         <div class="cap-sub">Portals · Platforms · Tools</div>
-        <div class="cap-desc">When a website isn't enough — you need something that actually *does* something. League management platforms. Client portals. Booking systems. Internal dashboards. Custom tools that automate what you're currently doing manually. We spec it, build it, test it, and guide you through every feature so launch day feels like a celebration, not a panic.</div>
-        <div class="cap-tools">
+        <div class="tc-body cap-desc">When a website isn't enough — you need something that actually does something. League management platforms. Client portals. Booking systems. Internal dashboards. Custom tools that automate what you're currently doing manually. We spec it, build it, test it, and guide you through every feature so launch day feels like a celebration, not a panic.</div>
+        <div class="tc-body cap-tools">
           <span class="ctool">React</span>
           <span class="ctool">Node.js</span>
           <span class="ctool">Supabase</span>
@@ -768,12 +722,12 @@ footer{padding:1.75rem 0 1.25rem}
         </div>
       </div>
 
-      <div class="cap-card reveal d3">
+      <div class="cap-card reveal d3 expandable" onclick="toggleCard(this)">
         <div class="cap-icon">📱</div>
-        <div class="cap-title">Mobile Apps</div>
+        <div class="cap-title">Mobile Apps <span class="tc-toggle">+ More</span></div>
         <div class="cap-sub">iOS · Android · Cross-Platform</div>
-        <div class="cap-desc">Real apps in the App Store and Google Play — not just a website that looks like an app. Built cross-platform so you're not paying twice. We handle the technical side: store submissions, push notifications, offline functionality. You focus on your users. We handle the build and make sure you understand how to manage and update it going forward.</div>
-        <div class="cap-tools">
+        <div class="tc-body cap-desc">Real apps in the App Store and Google Play — not just a website that looks like an app. Built cross-platform so you're not paying twice. We handle the technical side: store submissions, push notifications, offline functionality. You focus on your users. We handle the build and make sure you understand how to manage and update it going forward.</div>
+        <div class="tc-body cap-tools">
           <span class="ctool">React Native</span>
           <span class="ctool">Expo</span>
           <span class="ctool">iOS</span>
@@ -781,12 +735,12 @@ footer{padding:1.75rem 0 1.25rem}
         </div>
       </div>
 
-      <div class="cap-card reveal d1">
+      <div class="cap-card reveal d1 expandable" onclick="toggleCard(this)">
         <div class="cap-icon">🤖</div>
-        <div class="cap-title">AI Integrations</div>
+        <div class="cap-title">AI Integrations <span class="tc-toggle">+ More</span></div>
         <div class="cap-sub">Chatbots · Automation · Smart Tools</div>
-        <div class="cap-desc">AI isn't a buzzword here — it's in every build from day one. We integrate real AI features into your product: chatbots that answer your customers 24/7, lead qualification tools that work while you sleep, AI assistants embedded directly in your site. Powered by Claude API, OpenAI, and custom models. We explain exactly how it works so you can own it confidently.</div>
-        <div class="cap-tools">
+        <div class="tc-body cap-desc">AI isn't a buzzword here — it's in every build from day one. We integrate real AI features into your product: chatbots that answer your customers 24/7, lead qualification tools that work while you sleep, AI assistants embedded directly in your site. Powered by Claude API, OpenAI, and custom models. We explain exactly how it works so you can own it confidently.</div>
+        <div class="tc-body cap-tools">
           <span class="ctool">Claude API</span>
           <span class="ctool">OpenAI</span>
           <span class="ctool">LangChain</span>
@@ -795,12 +749,12 @@ footer{padding:1.75rem 0 1.25rem}
         </div>
       </div>
 
-      <div class="cap-card reveal d2">
+      <div class="cap-card reveal d2 expandable" onclick="toggleCard(this)">
         <div class="cap-icon">🛒</div>
-        <div class="cap-title">E-Commerce</div>
+        <div class="cap-title">E-Commerce <span class="tc-toggle">+ More</span></div>
         <div class="cap-sub">Shopify · WooCommerce · Custom</div>
-        <div class="cap-desc">Online stores built to sell — with the platform that fits your business, not the one that's easiest for us. Shopify for speed and scalability. WooCommerce for flexibility. Custom cart for full control. We build the store, set up your payment processing, connect your inventory, and train you on how to manage it yourself from day one.</div>
-        <div class="cap-tools">
+        <div class="tc-body cap-desc">Online stores built to sell — with the platform that fits your business, not the one that's easiest for us. Shopify for speed and scalability. WooCommerce for flexibility. Custom cart for full control. We build the store, set up your payment processing, connect your inventory, and train you on how to manage it yourself from day one.</div>
+        <div class="tc-body cap-tools">
           <span class="ctool">Shopify</span>
           <span class="ctool">WooCommerce</span>
           <span class="ctool">Stripe</span>
@@ -808,12 +762,12 @@ footer{padding:1.75rem 0 1.25rem}
         </div>
       </div>
 
-      <div class="cap-card reveal d3">
+      <div class="cap-card reveal d3 expandable" onclick="toggleCard(this)">
         <div class="cap-icon">🛡️</div>
-        <div class="cap-title">Care Plans</div>
+        <div class="cap-title">Care Plans <span class="tc-toggle">+ More</span></div>
         <div class="cap-sub">Monthly Retainer · Always On</div>
-        <div class="cap-desc">Your product doesn't stop after launch day — and neither do we. Monthly care plans cover updates, security patches, performance monitoring, SEO improvements, and new feature additions. Think of it as having a tech team on call without the full-time salary. One point of contact. Fast response. No ticket queues. Just your Strider, right beside you.</div>
-        <div class="cap-tools">
+        <div class="tc-body cap-desc">Your product doesn't stop after launch day — and neither do we. Monthly care plans cover updates, security patches, performance monitoring, SEO improvements, and new feature additions. Think of it as having a tech team on call without the full-time salary. One point of contact. Fast response. No ticket queues. Just your Strider, right beside you.</div>
+        <div class="tc-body cap-tools">
           <span class="ctool">Monthly Updates</span>
           <span class="ctool">SEO</span>
           <span class="ctool">Performance</span>
@@ -825,20 +779,20 @@ footer{padding:1.75rem 0 1.25rem}
 
     <!-- SUPPORT STRIP -->
     <div class="support-strip reveal">
-      <div class="support-item">
+      <div class="support-item expandable" onclick="toggleCard(this)">
         <div class="sup-icon">📞</div>
-        <div class="sup-title">Real Guidance</div>
-        <div class="sup-desc">Every project includes a dedicated onboarding walkthrough. We explain what we built, how it works, and how you manage it — in plain English. <strong>No jargon. No confusion. No dependency.</strong> You own your product and you understand it.</div>
+        <div class="sup-title">Real Guidance <span class="tc-toggle">+ More</span></div>
+        <div class="tc-body sup-desc">Every project includes a dedicated onboarding walkthrough. We explain what we built, how it works, and how you manage it — in plain English. <strong>No jargon. No confusion. No dependency.</strong> You own your product and you understand it.</div>
       </div>
-      <div class="support-item">
+      <div class="support-item expandable" onclick="toggleCard(this)">
         <div class="sup-icon">⚡</div>
-        <div class="sup-title">Fast Response</div>
-        <div class="sup-desc">You will never chase us. <strong>24-hour response guaranteed</strong> on every project and retainer. Direct line to your Strider — not a support ticket system, not a chatbot, not an overseas help desk. A real person who built your product.</div>
+        <div class="sup-title">Fast Response <span class="tc-toggle">+ More</span></div>
+        <div class="tc-body sup-desc">You will never chase us. <strong>24-hour response guaranteed</strong> on every project and retainer. Direct line to your Strider — not a support ticket system, not a chatbot, not an overseas help desk. A real person who built your product.</div>
       </div>
-      <div class="support-item">
+      <div class="support-item expandable" onclick="toggleCard(this)">
         <div class="sup-icon">🎯</div>
-        <div class="sup-title">Always Beside You</div>
-        <div class="sup-desc">Launch is not the finish line — it's the start. <strong>StrideSide stays beside you</strong> post-launch: monitoring, fixing, improving, and growing your product as your business grows. We're not a vendor. We're your tech team.</div>
+        <div class="sup-title">Always Beside You <span class="tc-toggle">+ More</span></div>
+        <div class="tc-body sup-desc">Launch is not the finish line — it's the start. <strong>StrideSide stays beside you</strong> post-launch: monitoring, fixing, improving, and growing your product as your business grows. We're not a vendor. We're your tech team.</div>
       </div>
     </div>
 
@@ -923,49 +877,357 @@ footer{padding:1.75rem 0 1.25rem}
   <div class="container">
     <div class="work-hdr">
       <div>
-        <div class="eyebrow blue reveal">Phase 03 — The Stretch</div>
-        <h2 class="sec-title reveal d1">Current<br><span class="o">Strides</span></h2>
+        <div class="eyebrow blue reveal">Current Strides</div>
+        <h2 class="sec-title reveal d1">Our<br><span class="o">Work.</span></h2>
       </div>
       <div class="live-badge reveal d2"><div class="live-dot"></div>Live &amp; Active</div>
     </div>
-    <div class="proj-grid">
-      <div class="proj-card reveal d1" onclick="window.open('DDML-API.html','_blank')" style="cursor:pointer;">
-        <div class="proj-thumb thumb-ddml">
-          <div class="proj-glow-ddml"></div>
-          <div class="proj-logo ddml-c">DD<span>ML</span></div>
-          <div class="proj-tag">● Live</div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-title">DDML</div>
-          <div class="proj-type">MLB The Show 26 · League Management Platform</div>
-          <p class="proj-desc">Diamond Dynasty Money League — a full-stack league management platform for competitive MLB The Show 26 play. Real rosters, real standings, real stakes. Built from scratch.</p>
-          <div class="proj-foot">
-            <div class="proj-stack">
-              <span class="stag">Web App</span>
-              <span class="stag">League Mgmt</span>
-              <span class="stag">MLB The Show 26</span>
+
+    <!-- CATEGORY FILTER BUTTONS -->
+    <div class="work-filters reveal">
+      <button class="wf-btn active" onclick="filterWork(this,'all')">All</button>
+      <button class="wf-btn" onclick="filterWork(this,'websites')">Websites</button>
+      <button class="wf-btn" onclick="filterWork(this,'webapps')">Web Apps</button>
+      <button class="wf-btn" onclick="filterWork(this,'mobile')">Mobile Apps</button>
+      <button class="wf-btn" onclick="filterWork(this,'ai')">AI Tools</button>
+      <button class="wf-btn" onclick="filterWork(this,'ecommerce')">E-Commerce</button>
+    </div>
+
+    <!-- WEBSITES -->
+    <div class="work-category" data-cat="websites">
+      <div class="work-cat-label">Websites</div>
+      <div class="proj-grid">
+        <div class="proj-card reveal d1" onclick="window.open('https://ddmlbeta.netlify.app','_blank')" style="cursor:pointer;">
+          <div class="proj-thumb thumb-ddml">
+            <div class="proj-glow-ddml"></div>
+            <div class="proj-logo ddml-c">DD<span>ML</span></div>
+            <div class="proj-tag">● Live</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">DDML</div>
+            <div class="proj-type">MLB The Show 26 · League Management Platform</div>
+            <p class="proj-desc">Diamond Dynasty Money League — a full-stack league management platform for competitive MLB The Show 26 play. Real rosters, real standings, real stakes. Built from scratch.</p>
+            <div class="proj-foot">
+              <div class="proj-stack">
+                <span class="stag">Web App</span><span class="stag">League Mgmt</span><span class="stag">MLB The Show 26</span>
+              </div>
+              <a href="https://ddmlbeta.netlify.app" target="_blank" class="proj-link">View →</a>
             </div>
-            <a href="DDML-API.html" target="_blank" class="proj-link">View →</a>
+          </div>
+        </div>
+        <div class="proj-card reveal d2" onclick="window.open('https://gamegrind.netlify.app','_blank')" style="cursor:pointer;">
+          <div class="proj-thumb thumb-gg">
+            <div class="proj-glow-gg"></div>
+            <div class="proj-logo gg-c">Game<span>Grind</span></div>
+            <div class="proj-tag">● Live</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">GameGrind.gg</div>
+            <div class="proj-type">Cinematic Gaming Competition Platform</div>
+            <p class="proj-desc">A cinematic gaming competition platform built for the next generation of competitive players. Immersive design, real competition infrastructure, a brand that plays as hard as its users.</p>
+            <div class="proj-foot">
+              <div class="proj-stack">
+                <span class="stag">Platform</span><span class="stag">Gaming</span><span class="stag">Competition</span>
+              </div>
+              <a href="https://gamegrind.netlify.app" target="_blank" class="proj-link">View →</a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="proj-card reveal d2" onclick="window.open('gamegrind-landing.html','_blank')" style="cursor:pointer;">
-        <div class="proj-thumb thumb-gg">
-          <div class="proj-glow-gg"></div>
-          <div class="proj-logo gg-c">Game<span>Grind</span></div>
-          <div class="proj-tag">● Live</div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-title">GameGrind.gg</div>
-          <div class="proj-type">Cinematic Gaming Competition Platform</div>
-          <p class="proj-desc">A cinematic gaming competition platform built for the next generation of competitive players. Immersive design, real competition infrastructure, a brand that plays as hard as its users.</p>
-          <div class="proj-foot">
-            <div class="proj-stack">
-              <span class="stag">Platform</span>
-              <span class="stag">Gaming</span>
-              <span class="stag">Competition</span>
+    </div>
+
+    <!-- WEB APPS -->
+    <div class="work-category" data-cat="webapps" style="display:none;">
+      <div class="work-cat-label">Web Apps</div>
+      <div class="proj-grid">
+        <div class="proj-card coming-soon reveal d1">
+          <div class="proj-thumb coming-thumb">
+            <div class="coming-glow"></div>
+            <div class="coming-label">WINDING UP</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Web App Projects</div>
+            <div class="proj-type">Portals · Platforms · Custom Tools</div>
+            <p class="proj-desc">Full-stack web application builds are in progress. Client portals, league platforms, booking systems — the next wave of Strides is loading.</p>
+            <div class="proj-foot">
+              <div class="proj-stack"><span class="stag coming-stag">In Progress</span></div>
+              <span class="proj-link coming-link">Winding Up ⟳</span>
             </div>
-            <a href="gamegrind-landing.html" target="_blank" class="proj-link">View →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE APPS -->
+    <div class="work-category" data-cat="mobile" style="display:none;">
+      <div class="work-cat-label">Mobile Apps</div>
+      <div class="proj-grid">
+        <div class="proj-card coming-soon reveal d1">
+          <div class="proj-thumb coming-thumb">
+            <div class="coming-glow"></div>
+            <div class="coming-label">DEMOS IN PROGRESS</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Mobile App Projects</div>
+            <div class="proj-type">iOS · Android · Cross-Platform</div>
+            <p class="proj-desc">Mobile builds are underway. React Native and Expo — real App Store and Google Play launches. First demos dropping soon.</p>
+            <div class="proj-foot">
+              <div class="proj-stack"><span class="stag coming-stag">Coming Soon</span></div>
+              <span class="proj-link coming-link">Coming Soon ↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI TOOLS -->
+    <div class="work-category" data-cat="ai" style="display:none;">
+      <div class="work-cat-label">AI Tools</div>
+      <div class="proj-grid">
+        <div class="proj-card coming-soon reveal d1">
+          <div class="proj-thumb coming-thumb ai-thumb">
+            <div class="coming-glow ai-glow"></div>
+            <div class="coming-label">WINDING UP</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">AI Tool Projects</div>
+            <div class="proj-type">Chatbots · Automation · Smart Integrations</div>
+            <p class="proj-desc">AI-powered builds are in development. Claude API, OpenAI integrations, lead capture tools, and custom automation — striding into the future.</p>
+            <div class="proj-foot">
+              <div class="proj-stack"><span class="stag coming-stag">In Progress</span></div>
+              <span class="proj-link coming-link">Winding Up ⟳</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E-COMMERCE -->
+    <div class="work-category" data-cat="ecommerce" style="display:none;">
+      <div class="work-cat-label">E-Commerce</div>
+      <div class="proj-grid">
+        <div class="proj-card coming-soon reveal d1">
+          <div class="proj-thumb coming-thumb ecom-thumb">
+            <div class="coming-glow ecom-glow"></div>
+            <div class="coming-label">COMING SOON</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">E-Commerce Projects</div>
+            <div class="proj-type">Shopify · WooCommerce · Custom Stores</div>
+            <p class="proj-desc">Online store builds are loading. Shopify, WooCommerce, custom carts — first client stores launching soon. Every Strider's first sale starts here.</p>
+            <div class="proj-foot">
+              <div class="proj-stack"><span class="stag coming-stag">Coming Soon</span></div>
+              <span class="proj-link coming-link">Coming Soon ↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="community">
+  <div class="container">
+
+    <div class="comm-hero reveal">
+      <div class="eyebrow" style="justify-content:center;color:var(--orange);">Phase 05 — The Striders</div>
+      <h2 class="sec-title">Once a Strider,<br><span class="o">Always a Strider.</span></h2>
+      <p class="comm-manifesto">
+        This is not a client list. This is not a portfolio. This is a <strong>community of people who refused to stride alone</strong> — and found the team that strided right beside them. Every project we complete adds another Strider to the family. Every Strider carries the same truth: <strong>forward motion, right beside you, now and forever.</strong>
+      </p>
+    </div>
+
+    <div class="comm-creed reveal">
+      <div class="comm-creed-text">
+        "You never stop making strides. This isn't the end — this is the start of the journey. Distinctive. Driven. Patient. A helpful hand to anyone in need. <span class="o">Longevity. Relatability. Visibility.</span> Forward motion. Right beside you."
+      </div>
+      <div class="comm-creed-attr">— The Founder's Creed · James Emilio · The Creed Every Strider Carries</div>
+      <div style="margin-top:1.5rem;font-family:var(--fd);font-weight:700;font-size:clamp(18px,2vw,22px);letter-spacing:.06em;color:var(--orange);font-style:italic;">Side by side. Stride by stride. StrideSide.</div>
+    </div>
+
+    <!-- WHAT IT MEANS -->
+    <div class="strider-grid">
+      <div class="strider-cell reveal d1 expandable" onclick="toggleCard(this)">
+        <div class="sc-number">01</div>
+        <div class="sc-title">You Are Never<br>Left Behind <span class="tc-toggle">+ More</span></div>
+        <div class="tc-body sc-body">The moment you become a Strider, you have a team. <strong>Not a vendor. Not a contractor. A team.</strong> One that answers, one that shows up, one that remembers your business and your vision — launch day, six months later, a year down the road. The relationship doesn't end when the invoice is paid.</div>
+      </div>
+      <div class="strider-cell reveal d2 expandable" onclick="toggleCard(this)">
+        <div class="sc-number">02</div>
+        <div class="sc-title">You Grow.<br>We Grow. <span class="tc-toggle">+ More</span></div>
+        <div class="tc-body sc-body">Striders don't stand still — and neither do we. <strong>As your business evolves, your product evolves with it.</strong> New features, new markets, new ideas — we're already beside you when they come. StrideSide grows with every Strider we add, and every Strider benefits from everything we learn building for the community.</div>
+      </div>
+      <div class="strider-cell reveal d3 expandable" onclick="toggleCard(this)">
+        <div class="sc-number">03</div>
+        <div class="sc-title">You Have<br>A Voice Here <span class="tc-toggle">+ More</span></div>
+        <div class="tc-body sc-body">Striders shape what StrideSide builds next. <strong>Your feedback, your needs, your industry — they become our roadmap.</strong> We are not building a product catalog. We are building a living studio that evolves with the people it serves. If you're a Strider, you're not a client. You're a collaborator.</div>
+      </div>
+      <div class="strider-cell reveal d1 expandable" onclick="toggleCard(this)">
+        <div class="sc-number">04</div>
+        <div class="sc-title">Together Forever.<br>No One Builds Alone. <span class="tc-toggle">+ More</span></div>
+        <div class="tc-body sc-body">The best things get built with the right people beside you. <strong>StrideSide exists so no one has to figure it out alone.</strong> Whether you're just starting or already scaling — we're here for every stride, for as long as you want us beside you. And when you're ready to stand on your own, we'll have made sure you can.</div>
+      </div>
+      <div class="strider-cell reveal d2 expandable" onclick="toggleCard(this)">
+        <div class="sc-number">05</div>
+        <div class="sc-title">The Stride<br>Never Stops <span class="tc-toggle">+ More</span></div>
+        <div class="tc-body sc-body">StrideSide is not a sprint. <strong>It's a long game — built for longevity.</strong> The businesses we build beside will still be running five, ten, twenty years from now. The Striders who trusted us first will be our longest partnerships. This studio is built to last because the people we build for deserve something that lasts.</div>
+      </div>
+      <div class="strider-cell reveal d3 expandable" onclick="toggleCard(this)">
+        <div class="sc-number">06</div>
+        <div class="sc-title">Forward Motion.<br>Always. <span class="tc-toggle">+ More</span></div>
+        <div class="tc-body sc-body">Every Strider carries the same philosophy — <strong>you don't stop when it gets hard, you stride through it.</strong> We've been through the fire. We know what it costs to build something real without the right support. That's why the support we give is the support we always needed. No Strider strides alone.</div>
+      </div>
+    </div>
+
+    <!-- STRIDER TICKER -->
+    <div class="striders-wall reveal">
+      <div class="wall-label">Striders — Growing Every Day</div>
+      <div class="ticker-wrap">
+        <div class="ticker-item"><div class="ti-avatar">JE</div><div><div class="ti-name">James Emilio</div><div class="ti-tag">Founder · Strider #1</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar b">BC</div><div><div class="ti-name">Brian Connelly</div><div class="ti-tag">Partner · Strider #2</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar d">DD</div><div><div class="ti-name">DDML Community</div><div class="ti-tag">MLB The Show 26 · Active</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar" style="background:#9B5CF6">GG</div><div><div class="ti-name">GameGrind Players</div><div class="ti-tag">Competitive Gaming · Active</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar b">SS</div><div><div class="ti-name">StrideSide Studio</div><div class="ti-tag">The Bullpen · Always Live</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar" style="background:#2a6e4a">YN</div><div><div class="ti-name">Your Name</div><div class="ti-tag">Future Strider · Waiting for you</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar">JE</div><div><div class="ti-name">James Emilio</div><div class="ti-tag">Founder · Strider #1</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar b">BC</div><div><div class="ti-name">Brian Connelly</div><div class="ti-tag">Partner · Strider #2</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar d">DD</div><div><div class="ti-name">DDML Community</div><div class="ti-tag">MLB The Show 26 · Active</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar" style="background:#9B5CF6">GG</div><div><div class="ti-name">GameGrind Players</div><div class="ti-tag">Competitive Gaming · Active</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar b">SS</div><div><div class="ti-name">StrideSide Studio</div><div class="ti-tag">The Bullpen · Always Live</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar" style="background:#2a6e4a">YN</div><div><div class="ti-name">Your Name</div><div class="ti-tag">Future Strider · Waiting for you</div></div></div>
+      </div>
+    </div>
+
+    <!-- COMMUNITY PROMISE CARDS -->
+    <div class="comm-promise">
+      <div class="cp-card orange reveal d1 expandable" onclick="toggleCard(this)">
+        <div class="cp-icon">🔥</div>
+        <div class="cp-title">Built in the Fire <span class="tc-toggle">+ More</span></div>
+        <div class="tc-body cp-body">StrideSide wasn't born in a boardroom. It was built by someone who <strong>lost everything, rebuilt from nothing, and learned exactly what it feels like to need a team and not have one.</strong> That experience is baked into every client relationship, every support call, every late-night fix before your launch. We don't just understand the struggle — we've lived it.</div>
+      </div>
+      <div class="cp-card reveal d2 expandable" onclick="toggleCard(this)">
+        <div class="cp-icon">🤝</div>
+        <div class="cp-title">Referred by Striders <span class="tc-toggle">+ More</span></div>
+        <div class="tc-body cp-body">The best way to become a Strider is to know one. <strong>Every client we serve becomes an ambassador for the community</strong> — not because we ask them to, but because the experience earns it. We're building a studio where the work speaks for itself and the relationships last longer than any project. Word of mouth is our best marketing because our Striders are our best story.</div>
+      </div>
+      <div class="cp-card reveal d1 expandable" onclick="toggleCard(this)">
+        <div class="cp-icon">📈</div>
+        <div class="cp-title">Striders Scale Together <span class="tc-toggle">+ More</span></div>
+        <div class="tc-body cp-body">When one Strider grows, we all learn. <strong>The tools we build, the patterns we discover, the breakthroughs we find</strong> — they flow back into the studio and raise the ceiling for every project that follows. Being a Strider means benefiting from a collective intelligence that gets sharper with every build. You're not just getting a product. You're getting everything we've learned building for everyone who came before you.</div>
+      </div>
+      <div class="cp-card orange reveal d2 expandable" onclick="toggleCard(this)">
+        <div class="cp-icon">🏆</div>
+        <div class="cp-title">The Long Game <span class="tc-toggle">+ More</span></div>
+        <div class="tc-body cp-body">Jimmy Jam built StrideSide on the philosophy of <strong>longevity over everything.</strong> Not the fastest buck. Not the biggest client. The deepest relationships, the strongest work, the most trusted brand in the boutique studio space. Every Strider who joins this community is a vote for that philosophy. You're not just hiring a studio. <strong>You're betting on the long game. So are we.</strong></div>
+      </div>
+    </div>
+
+    <!-- JOIN BANNER -->
+    <div class="comm-join reveal">
+      <h3>Ready to Become<br><span>a Strider?</span></h3>
+      <p>The community starts with one conversation. Tell us what you're building. Tell us where you want to go. We'll be right beside you — from the first message to the final delivery and every stride after that.</p>
+      <a href="#contact" class="comm-join-btn">Join the Striders →</a>
+    </div>
+
+  </div>
+</section>
+<!-- STORY — THE WIND UP -->
+
+<section id="story">
+  <div class="container">
+    <div class="eyebrow reveal">The Foundation</div>
+    <h2 class="sec-title reveal d1">The Founder's<br><span class="o">Stride</span></h2>
+
+    <div class="story-grid">
+      <div class="story-left reveal">
+        <div class="story-phase">Loading the power</div>
+        <div class="story-big">
+          I Needed
+          <span class="a">Someone</span>
+          StrideSide.
+        </div>
+        <div class="story-pull">
+          <p>"Every stride I ever took — I took alone. The restaurant. The bankruptcy. The years grinding and believing when no one else did. I had the vision. I had the work ethic. What I didn't have was a team right beside me. StrideSide is what I needed then. It's what I built now."</p>
+          <cite>— James Emilio · Founder</cite>
+        </div>
+        <div class="team-section">
+          <div class="team-lbl">The Bullpen — Your Striders</div>
+          <div class="team-grid">
+            <div class="team-card expandable" onclick="toggleCard(this)">
+              <div class="tc-icon">🤖</div>
+              <h4>AI Tools</h4>
+              <div class="tc-role">Always in the pen</div>
+              <div class="tc-body">
+                <p>Claude and custom AI. The engine that never sleeps, never loses focus, never leaves your side.</p>
+              </div>
+              <div class="tc-toggle">+ More</div>
+            </div>
+            <div class="team-card expandable" onclick="toggleCard(this)">
+              <div class="tc-icon">⚡</div>
+              <h4>The Builders</h4>
+              <div class="tc-role">Expert Striders</div>
+              <div class="tc-body">
+                <p>Developers and designers called in exactly when the project needs them. Pure delivery.</p>
+              </div>
+              <div class="tc-toggle">+ More</div>
+            </div>
+            <div class="team-card expandable" onclick="toggleCard(this)">
+              <div class="tc-icon">🎯</div>
+              <h4>Jimmy Jam</h4>
+              <div class="tc-role">Founder · Strider #1</div>
+              <div class="tc-body">
+                <p>The pitcher from the bullpen. Runners on base. Maximum pressure. Been here before. Delivers.</p>
+              </div>
+              <div class="tc-toggle">+ More</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline reveal d2">
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot on"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-era">Age 29 · The dream</div>
+            <div class="tl-h">Emilio's Almost Famous</div>
+            <div class="tl-p">Acquired the restaurant. Believed the arrival had come. The biggest swing yet — taken entirely alone on belief and will.</div>
+            <div class="tl-truth">The vision was right. The team wasn't there.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-era">Two years later · The first great stride</div>
+            <div class="tl-h">Bankruptcy. Rebuilt.</div>
+            <div class="tl-p">Closed. Filed. Fought through ADHD, depression, anxiety. Still standing. Still moving. The stride through adversity that shaped everything that followed.</div>
+            <div class="tl-truth">Striding alone is survivable. But it costs everything.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot b on"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-era">The plan · Built with Brian</div>
+            <div class="tl-h">The Bullpen Tavern</div>
+            <div class="tl-p">The most complete vision yet — built side by side with Brian Connelly. For the first time, the energy of having someone beside you. The stride felt completely different.</div>
+            <div class="tl-truth">The right vision. The wrong timing. The right lesson.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot b"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-era">The grind · Process &amp; discipline</div>
+            <div class="tl-h">memoryblue SDR</div>
+            <div class="tl-p">Process. Persistence. The long game. Every no is one step closer to yes. The SDR discipline that makes every delivery possible.</div>
+            <div class="tl-truth">Learning to trust the system. Building the approach.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot final"></div></div>
+          <div class="tl-body">
+            <div class="tl-era">Right now · The delivery</div>
+            <div class="tl-h o">StrideSide.</div>
+            <div class="tl-p">The studio built on one truth — <strong>nobody strides as far alone as they do with the right team beside them.</strong> The pitcher strides to the mound. Runners on base. Maximum pressure. He delivers. That's StrideSide. That's what you get.</div>
           </div>
         </div>
       </div>
@@ -973,9 +1235,39 @@ footer{padding:1.75rem 0 1.25rem}
   </div>
 </section>
 
+<!-- STRIDER TEAM -->
+<section id="team">
+  <div class="container">
+    <div class="eyebrow reveal">The Bullpen</div>
+    <h2 class="sec-title reveal d1">Meet Your<br><span class="o">Striders.</span></h2>
+    <p style="font-size:16px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.75;max-width:560px;margin-top:1rem;margin-bottom:3rem;" class="reveal d2">Every person in this studio chose to be here. Not for a paycheck — but because they believe nobody should have to build alone. This is the team that strides beside you.</p>
+    <div class="strider-team-grid">
+
+      <div class="strider-card reveal d1 expandable" onclick="toggleCard(this)">
+        <div class="strider-avatar sa-blue">JE</div>
+        <div class="strider-info">
+          <div class="strider-name">Jimmy Jam <span class="tc-toggle">+ More</span></div>
+          <div class="strider-num">Founder · Strider #1</div>
+          <div class="tc-body strider-title">Founder &amp; CEO — The one who built this from nothing. The pitcher from the bullpen. He's been through the fire — and that's exactly why you want him beside you.</div>
+        </div>
+      </div>
+
+      <div class="strider-card reveal d2 expandable" onclick="toggleCard(this)">
+        <div class="strider-avatar sa-orange">IF</div>
+        <div class="strider-info">
+          <div class="strider-name">Isaiah Fleming <span class="tc-toggle">+ More</span></div>
+          <div class="strider-num">Director of Creative Strategy &amp; Client Experience</div>
+          <div class="tc-body strider-title">The architect of how StrideSide looks, feels, and moves for every client — from first impression to final delivery.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="container">
-    <div class="eyebrow blue reveal">Phase 05 — Strike</div>
+    <div class="eyebrow blue reveal">Let's Stride</div>
     <div class="contact-grid">
       <div class="reveal">
         <div style="font-family:var(--fd);font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:1rem;font-style:italic;">Side by side. Stride by stride. StrideSide.</div>
@@ -985,7 +1277,7 @@ footer{padding:1.75rem 0 1.25rem}
           <div class="promise">Response within 24 hours. Always.</div>
           <div class="promise">No templates. Every project is custom.</div>
           <div class="promise">Boutique attention from first conversation to final delivery.</div>
-          <div class="promise">Wind up. Stride. Strike. That's StrideSide.</div>
+          <div class="promise">Strive. Stride. Deliver. That's StrideSide.</div>
         </div>
       </div>
       <form class="cf reveal d2" onsubmit="handleSubmit(event)">
@@ -1031,7 +1323,7 @@ footer{padding:1.75rem 0 1.25rem}
         <div style="font-size:10px;color:rgba(255,255,255,.2);margin-top:6px;letter-spacing:.1em;text-transform:uppercase;">Once a Strider, Always a Strider.</div>
       </div>
       <div>
-        <div class="foot-copy">© 2025 StrideSide. All rights reserved.</div>
+        <div class="foot-copy">© 2026 StrideSide. All rights reserved.</div>
         <div class="foot-copy" style="margin-top:4px;color:rgba(77,158,232,.3);font-size:10px;">strideside.co</div>
         <div class="foot-copy" style="margin-top:4px;color:rgba(232,80,10,.4);font-size:10px;letter-spacing:.1em;text-transform:uppercase;">A StrideSide Original</div>
         <div class="foot-copy" style="margin-top:6px;font-size:12px;font-style:italic;color:rgba(255,255,255,.2);letter-spacing:.04em;">Side by side. Stride by stride. StrideSide.</div>
@@ -1041,6 +1333,43 @@ footer{padding:1.75rem 0 1.25rem}
 </footer>
 
 <script>
+function toggleMenu() {
+  const btn = document.querySelector('.nav-hamburger');
+  const drawer = document.getElementById('mobileNav');
+  btn.classList.toggle('open');
+  drawer.classList.toggle('open');
+  document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+}
+
+function closeMenu() {
+  const btn = document.querySelector('.nav-hamburger');
+  const drawer = document.getElementById('mobileNav');
+  btn.classList.remove('open');
+  drawer.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function toggleCard(card) {
+  const isExpanded = card.classList.contains('expanded');
+  card.classList.toggle('expanded');
+  const toggle = card.querySelector('.tc-toggle');
+  if (toggle) toggle.textContent = isExpanded ? '+ More' : '− Less';
+}
+
+function filterWork(btn, cat) {
+  // Update active button
+  document.querySelectorAll('.wf-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Show/hide categories
+  document.querySelectorAll('.work-category').forEach(section => {
+    if (cat === 'all' || section.dataset.cat === cat) {
+      section.style.display = 'block';
+    } else {
+      section.style.display = 'none';
+    }
+  });
+}
+
 const reveals = document.querySelectorAll('.reveal');
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
