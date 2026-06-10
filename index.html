@@ -165,6 +165,17 @@ section{position:relative;z-index:1}
 .proj-card{border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--card);transition:transform .25s,border-color .25s;cursor:pointer}
 .proj-card:hover{transform:translateY(-6px);border-color:rgba(77,158,232,.4)}
 .proj-thumb{height:260px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+/* BROWSER MOCKUP FRAMES */
+.proj-browser{position:absolute;inset:0;display:flex;flex-direction:column}
+.proj-browser-bar{height:32px;background:rgba(0,0,0,.6);display:flex;align-items:center;padding:0 12px;gap:6px;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,.06)}
+.pbb-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.pbb-dot.r{background:#ff5f57}.pbb-dot.y{background:#febc2e}.pbb-dot.g{background:#28c840}
+.pbb-url{flex:1;margin:0 10px;background:rgba(255,255,255,.06);border-radius:4px;height:16px;display:flex;align-items:center;padding:0 8px}
+.pbb-url span{font-size:9px;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.3);font-family:var(--fb)}
+.proj-browser-screen{flex:1;position:relative;overflow:hidden;min-height:0}
+/* WOLF AVATAR */
+.wolf-avatar-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#040f0f 0%,#0a2424 50%,#061818 100%)}
+.wolf-avatar-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(42,191,191,.3) 0%,transparent 65%)}
 .thumb-ddml{background:linear-gradient(135deg,#0a1628 0%,#1a3a6e 50%,#0d2040 100%)}
 .thumb-gg{background:linear-gradient(135deg,#0a0a0f 0%,#1a0a2e 50%,#0f0a1a 100%)}
 .proj-glow-ddml{position:absolute;top:-50px;right:-50px;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(0,61,165,.5) 0%,transparent 65%)}
@@ -172,6 +183,9 @@ section{position:relative;z-index:1}
 .proj-logo{font-family:var(--fd);font-weight:900;font-size:56px;letter-spacing:-.03em;text-transform:uppercase;z-index:1;text-align:center;line-height:1}
 .ddml-c{color:#fff}.ddml-c span{color:#FFD700}
 .gg-c{color:#fff}.gg-c span{color:#9B5CF6}
+.lw-c{color:#fff;font-size:42px}.lw-c span{color:#2ABFBF}
+.thumb-lw{background:linear-gradient(135deg,#040f0f 0%,#0a2424 50%,#061818 100%)}
+.proj-glow-lw{position:absolute;top:-50px;right:-50px;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(42,191,191,.35) 0%,transparent 65%)}
 .proj-tag{position:absolute;top:1rem;left:1rem;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:4px;background:rgba(232,80,10,.15);color:var(--orange);border:1px solid rgba(232,80,10,.3)}
 .proj-body{padding:1.5rem}
 .proj-title{font-family:var(--fd);font-weight:900;font-size:26px;text-transform:uppercase;letter-spacing:-.01em;color:#fff}
@@ -211,7 +225,7 @@ section{position:relative;z-index:1}
 
 .price-lbl{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:1.5rem;display:flex;align-items:center;gap:10px}
 .price-lbl::before{content:'';display:block;width:28px;height:1px;background:var(--sky)}
-.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:1.5rem}
 .price-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.75rem 1.5rem;transition:transform .2s,border-color .2s;position:relative;overflow:hidden;display:flex;flex-direction:column}
 .price-card:hover{transform:translateY(-4px);border-color:rgba(77,158,232,.35)}
 .price-card.feat{border-color:rgba(232,80,10,.4);background:rgba(232,80,10,.05)}
@@ -228,7 +242,50 @@ section{position:relative;z-index:1}
 .price-card.feat .price-cta{background:var(--orange);border-color:var(--orange);color:#fff}
 .price-card.feat .price-cta:hover{background:#ff6422}
 
-.guarantee{margin-top:4rem;padding:2.5rem 3rem;background:var(--blue);border-radius:14px;display:flex;align-items:center;gap:3rem;border:1px solid rgba(255,255,255,.1)}
+/* DOC PLATFORM SECTION */
+.doc-platform{margin-top:4rem}
+.doc-platform-hdr{display:flex;align-items:center;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.doc-eyebrow{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:10px}
+.doc-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--orange)}
+.doc-intro{font-size:14px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.75;max-width:680px;margin-bottom:2rem}
+.doc-intro strong{color:#fff;font-weight:500}
+.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:2rem}
+.doc-card{border-radius:12px;padding:1.75rem 1.5rem;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
+.doc-card:hover{transform:translateY(-4px)}
+.doc-builder{background:rgba(77,158,232,.06);border:1px solid rgba(77,158,232,.2)}
+.doc-builder:hover{border-color:rgba(77,158,232,.5)}
+.doc-client{background:rgba(232,80,10,.05);border:1px solid rgba(232,80,10,.3)}
+.doc-client:hover{border-color:rgba(232,80,10,.6)}
+.doc-client::before{content:'Included with Studio';position:absolute;top:12px;right:12px;font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:rgba(232,80,10,.15);color:var(--orange);border:1px solid rgba(232,80,10,.25)}
+.doc-enterprise{background:linear-gradient(135deg,rgba(0,26,78,.8) 0%,rgba(30,10,60,.8) 100%);border:1px solid rgba(155,92,246,.2)}
+.doc-enterprise:hover{border-color:rgba(155,92,246,.5);transform:translateY(-4px)}
+.doc-enterprise .doc-tier-label{color:rgba(155,92,246,.8)}
+.doc-enterprise .doc-name{color:#fff}
+.doc-enterprise .doc-price{font-family:var(--fd);font-weight:700;font-size:22px;color:rgba(155,92,246,.7);margin:8px 0 4px;letter-spacing:.04em}
+.doc-enterprise .doc-who{font-size:11px;color:var(--dim);margin-bottom:1rem}
+.doc-enterprise .doc-feats li::before{content:'→';color:rgba(155,92,246,.6);flex-shrink:0;font-size:11px;margin-top:1px}
+.doc-enterprise .doc-feats li{color:rgba(255,255,255,.4)}
+.doc-cta-soon{margin-top:1.5rem;display:block;text-align:center;padding:10px;border-radius:7px;font-family:var(--fd);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(155,92,246,.2);color:rgba(155,92,246,.5);cursor:default}
+.doc-tier-label{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.75rem}
+.doc-builder .doc-tier-label{color:var(--sky)}
+.doc-client .doc-tier-label{color:var(--orange)}
+.doc-name{font-family:var(--fd);font-weight:900;font-size:26px;text-transform:uppercase;letter-spacing:-.01em;color:#fff;line-height:1}
+.doc-price{font-family:var(--fd);font-weight:700;font-size:28px;color:var(--orange);margin:8px 0 4px;letter-spacing:-.02em}
+.doc-who{font-size:11px;color:var(--dim);margin-bottom:1rem}
+.doc-div{height:1px;background:rgba(255,255,255,.06);margin:1rem 0}
+.doc-feats{list-style:none;display:flex;flex-direction:column;gap:7px;flex:1}
+.doc-feats li{font-size:12px;font-weight:300;color:rgba(255,255,255,.45);display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+.doc-builder .doc-feats li::before{content:'→';color:var(--sky);flex-shrink:0;font-size:11px;margin-top:1px}
+.doc-client .doc-feats li::before{content:'→';color:var(--orange);flex-shrink:0;font-size:11px;margin-top:1px}
+.doc-cta{margin-top:1.5rem;display:block;text-align:center;padding:10px;border-radius:7px;font-family:var(--fd);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;transition:all .2s}
+.doc-builder .doc-cta{border:1px solid rgba(77,158,232,.3);color:var(--sky)}
+.doc-builder .doc-cta:hover{background:rgba(77,158,232,.1);border-color:var(--sky)}
+.doc-client .doc-cta{background:var(--orange);border:1px solid var(--orange);color:#fff}
+.doc-client .doc-cta:hover{background:#ff6422}
+.doc-mission{margin-top:2rem;padding:2rem 2.5rem;background:linear-gradient(135deg,rgba(0,61,165,.3) 0%,rgba(232,80,10,.08) 100%);border:1px solid rgba(77,158,232,.15);border-radius:14px;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.doc-mission-text{font-family:var(--fd);font-weight:700;font-size:clamp(18px,2vw,24px);color:#fff;letter-spacing:.01em;font-style:italic;flex:1}
+.doc-mission-text span{color:var(--orange)}
+.doc-mission-attr{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3);flex-shrink:0}
 .guar-text h3{font-family:var(--fd);font-weight:900;font-size:28px;text-transform:uppercase;letter-spacing:-.01em;color:#fff}
 .guar-text p{font-size:14px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.65;margin-top:8px;max-width:480px}
 .guar-badge{flex-shrink:0;text-align:center;border-left:1px solid rgba(255,255,255,.12);padding-left:3rem}
@@ -474,6 +531,10 @@ nav{padding:0 1rem;height:56px;top:26px}
 .price-feats li{font-size:11.5px;gap:6px}
 .price-cta{font-size:12px;padding:9px;margin-top:1rem}
 .guarantee{flex-direction:column;gap:1.25rem;padding:1.25rem 1.125rem;border-radius:10px}
+.price-grid{grid-template-columns:1fr}
+.doc-grid{grid-template-columns:1fr}
+.doc-mission{flex-direction:column;gap:1rem;padding:1.5rem}
+.doc-platform{margin-top:2.5rem}
 .guar-text h3{font-size:20px}
 .guar-text p{font-size:12.5px;line-height:1.6;max-width:100%}
 .guar-badge{border-left:none;border-top:1px solid rgba(255,255,255,.1);padding-left:0;padding-top:1rem;width:100%}
@@ -665,7 +726,7 @@ footer{padding:1.75rem 0 1.25rem}
   </div>
   <div class="hero-badge">
     <div class="hero-badge-inner">
-      <div class="hero-badge-num">3<span>+</span></div>
+      <div class="hero-badge-num">4<span>+</span></div>
       <div class="hero-badge-lbl">Active Builds</div>
     </div>
   </div>
@@ -796,68 +857,121 @@ footer{padding:1.75rem 0 1.25rem}
       </div>
     </div>
 
-    <!-- PRICING -->
-    <div class="price-lbl reveal">Pricing Tiers — Pick Your Stride</div>
+    <!-- PRICING — BUILD TIERS -->
+    <div class="price-lbl reveal">Build Tiers — One-Time Fee</div>
     <div class="price-grid">
       <div class="price-card reveal d1">
-        <div class="price-tier">Launch</div>
-        <div class="price-range">$1.5K–$3.5K</div>
-        <div class="price-period">One-time · Perfect for: small businesses, personal brands, landing pages</div>
+        <div class="price-tier">Starter</div>
+        <div class="price-range">$399–$499</div>
+        <div class="price-period">One-time · Get online. Look legit. Own it.</div>
         <div class="price-div"></div>
         <ul class="price-feats">
-          <li>5–7 page fully custom site</li>
-          <li>Mobile-responsive on every device</li>
-          <li>Contact form, Google Maps, social links</li>
-          <li>Basic SEO setup so Google finds you</li>
-          <li>2-week turnaround</li>
+          <li>Clean single-page or simple multi-page site</li>
+          <li>Mobile responsive on every device</li>
+          <li>Contact form, location, social links</li>
+          <li>Basic SEO so Google finds you</li>
+          <li>3–5 day turnaround</li>
           <li>Full walkthrough on launch day</li>
         </ul>
         <a href="#contact" class="price-cta">Start here →</a>
       </div>
       <div class="price-card feat reveal d2">
-        <div class="price-tier">Growth</div>
-        <div class="price-range">$4K–$9K</div>
-        <div class="price-period">One-time · Perfect for: growing businesses, e-commerce, booking</div>
+        <div class="price-tier">Standard</div>
+        <div class="price-range">$599–$699</div>
+        <div class="price-period">One-time · The full build. Any industry.</div>
         <div class="price-div"></div>
         <ul class="price-feats">
-          <li>Full brand system + design language</li>
-          <li>Custom animations &amp; interactions</li>
-          <li>E-commerce, booking, or client portal</li>
-          <li>AI chatbot or lead-capture integration</li>
-          <li>Advanced SEO + analytics setup</li>
-          <li>Training session + documentation</li>
+          <li>Full multi-page custom site</li>
+          <li>Gallery, services, booking or lead capture</li>
+          <li>Email capture + CMS — you manage it yourself</li>
+          <li>SEO basics + OG tags + schema markup</li>
+          <li>1–2 week build</li>
+          <li>You own everything. No platform lock-in.</li>
         </ul>
         <a href="#contact" class="price-cta">Let's build →</a>
       </div>
       <div class="price-card reveal d3">
         <div class="price-tier">Studio</div>
-        <div class="price-range">$10K+</div>
-        <div class="price-period">One-time · Perfect for: full platforms, apps, complex products</div>
+        <div class="price-range">$799–$999</div>
+        <div class="price-period">One-time · The full StrideSide treatment.</div>
         <div class="price-div"></div>
         <ul class="price-feats">
-          <li>Full-stack web or mobile application</li>
-          <li>Database architecture &amp; API builds</li>
-          <li>AI-powered features &amp; automation</li>
-          <li>User auth, dashboards, admin panels</li>
-          <li>Retainer option post-launch</li>
-          <li>White-label available for agencies</li>
+          <li>Everything in Standard</li>
+          <li>Doc AI assistant — live on your site 24/7</li>
+          <li>Custom brand direction + story page</li>
+          <li>Press, reviews, or social integration</li>
+          <li>2–3 week build</li>
+          <li>Your business, fully alive online</li>
         </ul>
-        <a href="#contact" class="price-cta">Let's stride →</a>
+        <a href="#contact" class="price-cta">Go Studio →</a>
       </div>
-      <div class="price-card reveal d4">
-        <div class="price-tier">Retainer</div>
-        <div class="price-range">$500–$2K</div>
-        <div class="price-period">Per month · Your tech team. On call. Always.</div>
-        <div class="price-div"></div>
-        <ul class="price-feats">
-          <li>Monthly updates &amp; new features</li>
-          <li>Security patches &amp; uptime monitoring</li>
-          <li>SEO improvements &amp; performance tuning</li>
-          <li>Direct Strider access — no ticket queues</li>
-          <li>Priority turnaround on all requests</li>
-          <li>Monthly report: what we did &amp; why</li>
-        </ul>
-        <a href="#contact" class="price-cta">Stay beside me →</a>
+    </div>
+
+    <!-- RETAINER + PLATFORM NOTE -->
+    <div class="support-strip reveal" style="margin-bottom:0;grid-template-columns:1fr 1fr;gap:2rem;">
+      <div class="support-item">
+        <div class="sup-icon">🔄</div>
+        <div class="sup-title">Site Retainer</div>
+        <div class="sup-desc"><strong>$199/mo</strong> · Hosting, updates, content changes, SEO monitoring, performance. Your tech team. On call. Always. Every build client rolls into this.</div>
+      </div>
+      <div class="support-item" style="padding-left:2rem;border-left:1px solid var(--border);">
+        <div class="sup-icon">🏗️</div>
+        <div class="sup-title">Platform Builds</div>
+        <div class="sup-desc"><strong>$4,000–$8,000+</strong> · Web apps, league platforms, mobile apps, real functionality. Firebase, PWA, user auth, dashboards. DDML-level. Scoped per project.</div>
+      </div>
+    </div>
+
+    <!-- DOC PLATFORM -->
+    <div class="doc-platform reveal">
+      <div class="doc-eyebrow">Powered by Doc — The AI Platform</div>
+      <p class="doc-intro">Doc is the AI engine inside everything StrideSide builds. Three products. Three entry points. One mission: <strong>no matter what level you are, we provide the tools to stride.</strong></p>
+      <div class="doc-grid">
+        <div class="doc-card doc-builder reveal d1">
+          <div class="doc-tier-label">For Builders</div>
+          <div class="doc-name">Doc Builder</div>
+          <div class="doc-price">~$49/mo</div>
+          <div class="doc-who">Self-serve · Technically inclined · Build your own</div>
+          <div class="doc-div"></div>
+          <ul class="doc-feats">
+            <li>Full access to Doc's AI capabilities</li>
+            <li>Session context saved — Doc remembers your project</li>
+            <li>Build your own products with an AI partner</li>
+            <li>The entry point that feeds everything else</li>
+          </ul>
+          <a href="#contact" class="doc-cta">Join the waitlist →</a>
+        </div>
+        <div class="doc-card doc-client reveal d2">
+          <div class="doc-tier-label">For Clients</div>
+          <div class="doc-name">Doc Client</div>
+          <div class="doc-price">$79–$149/mo</div>
+          <div class="doc-who">Your business · AI-powered · Always on</div>
+          <div class="doc-div"></div>
+          <ul class="doc-feats">
+            <li>AI assistant trained on your brand and business</li>
+            <li>Answers your customers 24/7 on your site</li>
+            <li>Updated by StrideSide as your business evolves</li>
+            <li>Included with every Studio build</li>
+          </ul>
+          <a href="#contact" class="doc-cta">Add Doc to my site →</a>
+        </div>
+        <div class="doc-card doc-enterprise reveal d3">
+          <div class="doc-tier-label">Enterprise · Coming Soon</div>
+          <div class="doc-name">Your Doc</div>
+          <div class="doc-price">Custom</div>
+          <div class="doc-who">Your own named AI engine · Trained on your entire company</div>
+          <div class="doc-div"></div>
+          <ul class="doc-feats">
+            <li>A fully custom AI system named for your brand</li>
+            <li>Knows every client, every build, every decision</li>
+            <li>Deployed across your entire operation</li>
+            <li>The same engine powering StrideSide — yours</li>
+          </ul>
+          <span class="doc-cta doc-cta-soon">In Development ⟳</span>
+        </div>
+      </div>
+      <div class="doc-mission reveal">
+        <div class="doc-mission-text">"No matter what level you are, <span>we provide the tools to stride.</span>"</div>
+        <div class="doc-mission-attr">The StrideSide Mission</div>
       </div>
     </div>
 
@@ -899,8 +1013,13 @@ footer{padding:1.75rem 0 1.25rem}
       <div class="proj-grid">
         <div class="proj-card reveal d1" onclick="window.open('https://ddmlbeta.netlify.app','_blank')" style="cursor:pointer;">
           <div class="proj-thumb thumb-ddml">
-            <div class="proj-glow-ddml"></div>
-            <div class="proj-logo ddml-c">DD<span>ML</span></div>
+            <div class="proj-browser">
+              <div class="proj-browser-bar">
+                <div class="pbb-dot r"></div><div class="pbb-dot y"></div><div class="pbb-dot g"></div>
+                <div class="pbb-url"><span>ddmlbeta.netlify.app</span></div>
+              </div>
+              <div class="proj-browser-screen" style="background:url('1dd.png') center top/cover no-repeat;"></div>
+            </div>
             <div class="proj-tag">● Live</div>
           </div>
           <div class="proj-body">
@@ -917,8 +1036,13 @@ footer{padding:1.75rem 0 1.25rem}
         </div>
         <div class="proj-card reveal d2" onclick="window.open('https://gamegrind.netlify.app','_blank')" style="cursor:pointer;">
           <div class="proj-thumb thumb-gg">
-            <div class="proj-glow-gg"></div>
-            <div class="proj-logo gg-c">Game<span>Grind</span></div>
+            <div class="proj-browser">
+              <div class="proj-browser-bar">
+                <div class="pbb-dot r"></div><div class="pbb-dot y"></div><div class="pbb-dot g"></div>
+                <div class="pbb-url"><span>gamegrind.netlify.app</span></div>
+              </div>
+              <div class="proj-browser-screen" style="background:url('1gg.png') center top/cover no-repeat;"></div>
+            </div>
             <div class="proj-tag">● Live</div>
           </div>
           <div class="proj-body">
@@ -930,6 +1054,29 @@ footer{padding:1.75rem 0 1.25rem}
                 <span class="stag">Platform</span><span class="stag">Gaming</span><span class="stag">Competition</span>
               </div>
               <a href="https://gamegrind.netlify.app" target="_blank" class="proj-link">View →</a>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card reveal d3" onclick="window.open('https://littlewolf.netlify.app','_blank')" style="cursor:pointer;">
+          <div class="proj-thumb thumb-lw">
+            <div class="proj-browser">
+              <div class="proj-browser-bar">
+                <div class="pbb-dot r"></div><div class="pbb-dot y"></div><div class="pbb-dot g"></div>
+                <div class="pbb-url"><span>littlewolf.netlify.app</span></div>
+              </div>
+              <div class="proj-browser-screen" style="background:url('1lw.png') center top/cover no-repeat;"></div>
+            </div>
+            <div class="proj-tag" style="background:rgba(42,191,191,.15);color:#2ABFBF;border-color:rgba(42,191,191,.35);">● StrideSide Original</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Little Wolf Denver</div>
+            <div class="proj-type">Boutique Restaurant & Whiskey Bar · Full Build</div>
+            <p class="proj-desc">World's First American Single Malt Whiskey Bar — Denver, CO. Full boutique build: custom brand system, AI chat widget, Wolf Pack CRM, Howl Board, Netlify CMS. The case study that sells every future restaurant client.</p>
+            <div class="proj-foot">
+              <div class="proj-stack">
+                <span class="stag">Restaurant</span><span class="stag">AI Chat</span><span class="stag">CMS</span><span class="stag">PWA</span>
+              </div>
+              <a href="https://littlewolf.netlify.app" target="_blank" class="proj-link">View →</a>
             </div>
           </div>
         </div>
@@ -984,15 +1131,71 @@ footer{padding:1.75rem 0 1.25rem}
     <div class="work-category" data-cat="ai" style="display:none;">
       <div class="work-cat-label">AI Tools</div>
       <div class="proj-grid">
-        <div class="proj-card coming-soon reveal d1">
+        <div class="proj-card reveal d1" onclick="window.open('https://littlewolf.netlify.app','_blank')" style="cursor:pointer;">
+          <div class="proj-thumb thumb-lw">
+            <div class="wolf-avatar-wrap">
+              <div class="wolf-avatar-glow"></div>
+              <svg width="140" height="140" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <!-- Body/head base -->
+                <ellipse cx="70" cy="82" rx="32" ry="28" fill="#1a3a3a"/>
+                <!-- Head -->
+                <ellipse cx="70" cy="58" rx="30" ry="26" fill="#1e4444"/>
+                <!-- Ears -->
+                <polygon points="45,38 38,12 58,32" fill="#1e4444"/>
+                <polygon points="95,38 102,12 82,32" fill="#1e4444"/>
+                <!-- Inner ears -->
+                <polygon points="46,36 40,17 57,32" fill="#2ABFBF" opacity=".6"/>
+                <polygon points="94,36 100,17 83,32" fill="#2ABFBF" opacity=".6"/>
+                <!-- Face -->
+                <ellipse cx="70" cy="60" rx="22" ry="20" fill="#245454"/>
+                <!-- Eyes -->
+                <ellipse cx="61" cy="55" rx="5" ry="5.5" fill="#0a1a1a"/>
+                <ellipse cx="79" cy="55" rx="5" ry="5.5" fill="#0a1a1a"/>
+                <!-- Eye glow -->
+                <ellipse cx="61" cy="55" rx="4" ry="4.5" fill="#2ABFBF" opacity=".9"/>
+                <ellipse cx="79" cy="55" rx="4" ry="4.5" fill="#2ABFBF" opacity=".9"/>
+                <!-- Eye shine -->
+                <circle cx="63" cy="53" r="1.5" fill="#fff" opacity=".8"/>
+                <circle cx="81" cy="53" r="1.5" fill="#fff" opacity=".8"/>
+                <!-- Snout -->
+                <ellipse cx="70" cy="66" rx="10" ry="7" fill="#1a3a3a"/>
+                <!-- Nose -->
+                <ellipse cx="70" cy="62" rx="4" ry="2.5" fill="#0a1010"/>
+                <!-- Mouth -->
+                <path d="M64,67 Q70,72 76,67" stroke="#2ABFBF" stroke-width="1.5" fill="none" opacity=".7"/>
+                <!-- Tech circuit lines -->
+                <line x1="30" y1="58" x2="44" y2="58" stroke="#2ABFBF" stroke-width="1" opacity=".4"/>
+                <circle cx="30" cy="58" r="2" fill="#2ABFBF" opacity=".5"/>
+                <line x1="96" y1="58" x2="110" y2="58" stroke="#2ABFBF" stroke-width="1" opacity=".4"/>
+                <circle cx="110" cy="58" r="2" fill="#2ABFBF" opacity=".5"/>
+                <!-- Glow ring -->
+                <circle cx="70" cy="58" r="34" stroke="#2ABFBF" stroke-width="1" fill="none" opacity=".15"/>
+                <circle cx="70" cy="58" r="40" stroke="#2ABFBF" stroke-width=".5" fill="none" opacity=".08"/>
+              </svg>
+            </div>
+            <div class="proj-tag" style="background:rgba(42,191,191,.15);color:#2ABFBF;border-color:rgba(42,191,191,.35);">● Live on Little Wolf</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Wolf Assistant</div>
+            <div class="proj-type">Claude API · AI Chat Widget · Live Demo</div>
+            <p class="proj-desc">A Claude API-powered chat assistant embedded on Little Wolf Denver. Full brand voice, menu knowledge, hours, spirits list, and reservation rules — live 24/7 for real customers. ~1,600 conversations per $5. This is the demo every future restaurant client sees before they sign.</p>
+            <div class="proj-foot">
+              <div class="proj-stack">
+                <span class="stag">Claude API</span><span class="stag">AI Chat</span><span class="stag">Restaurant</span><span class="stag">Live</span>
+              </div>
+              <a href="https://littlewolf.netlify.app" target="_blank" class="proj-link">See It Live →</a>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card coming-soon reveal d2">
           <div class="proj-thumb coming-thumb ai-thumb">
             <div class="coming-glow ai-glow"></div>
             <div class="coming-label">WINDING UP</div>
           </div>
           <div class="proj-body">
-            <div class="proj-title">AI Tool Projects</div>
+            <div class="proj-title">Next AI Build</div>
             <div class="proj-type">Chatbots · Automation · Smart Integrations</div>
-            <p class="proj-desc">AI-powered builds are in development. Claude API, OpenAI integrations, lead capture tools, and custom automation — striding into the future.</p>
+            <p class="proj-desc">More AI-powered builds are in development. Lead capture tools, custom automation, and Claude API integrations across new verticals — striding into the future.</p>
             <div class="proj-foot">
               <div class="proj-stack"><span class="stag coming-stag">In Progress</span></div>
               <span class="proj-link coming-link">Winding Up ⟳</span>
@@ -1086,12 +1289,14 @@ footer{padding:1.75rem 0 1.25rem}
       <div class="ticker-wrap">
         <div class="ticker-item"><div class="ti-avatar">JE</div><div><div class="ti-name">James Emilio</div><div class="ti-tag">Founder · Strider #1</div></div></div>
         <div class="ticker-item"><div class="ti-avatar b">BC</div><div><div class="ti-name">Brian Connelly</div><div class="ti-tag">Partner · Strider #2</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar" style="background:#2ABFBF;color:#fff;">CO</div><div><div class="ti-name">Chris Odde</div><div class="ti-tag">Little Wolf Denver · Strider #3</div></div></div>
         <div class="ticker-item"><div class="ti-avatar d">DD</div><div><div class="ti-name">DDML Community</div><div class="ti-tag">MLB The Show 26 · Active</div></div></div>
         <div class="ticker-item"><div class="ti-avatar" style="background:#9B5CF6">GG</div><div><div class="ti-name">GameGrind Players</div><div class="ti-tag">Competitive Gaming · Active</div></div></div>
         <div class="ticker-item"><div class="ti-avatar b">SS</div><div><div class="ti-name">StrideSide Studio</div><div class="ti-tag">The Bullpen · Always Live</div></div></div>
         <div class="ticker-item"><div class="ti-avatar" style="background:#2a6e4a">YN</div><div><div class="ti-name">Your Name</div><div class="ti-tag">Future Strider · Waiting for you</div></div></div>
         <div class="ticker-item"><div class="ti-avatar">JE</div><div><div class="ti-name">James Emilio</div><div class="ti-tag">Founder · Strider #1</div></div></div>
         <div class="ticker-item"><div class="ti-avatar b">BC</div><div><div class="ti-name">Brian Connelly</div><div class="ti-tag">Partner · Strider #2</div></div></div>
+        <div class="ticker-item"><div class="ti-avatar" style="background:#2ABFBF;color:#fff;">CO</div><div><div class="ti-name">Chris Odde</div><div class="ti-tag">Little Wolf Denver · Strider #3</div></div></div>
         <div class="ticker-item"><div class="ti-avatar d">DD</div><div><div class="ti-name">DDML Community</div><div class="ti-tag">MLB The Show 26 · Active</div></div></div>
         <div class="ticker-item"><div class="ti-avatar" style="background:#9B5CF6">GG</div><div><div class="ti-name">GameGrind Players</div><div class="ti-tag">Competitive Gaming · Active</div></div></div>
         <div class="ticker-item"><div class="ti-avatar b">SS</div><div><div class="ti-name">StrideSide Studio</div><div class="ti-tag">The Bullpen · Always Live</div></div></div>
@@ -1249,15 +1454,6 @@ footer{padding:1.75rem 0 1.25rem}
           <div class="strider-name">Jimmy Jam <span class="tc-toggle">+ More</span></div>
           <div class="strider-num">Founder · Strider #1</div>
           <div class="tc-body strider-title">Founder &amp; CEO — The one who built this from nothing. The pitcher from the bullpen. He's been through the fire — and that's exactly why you want him beside you.</div>
-        </div>
-      </div>
-
-      <div class="strider-card reveal d2 expandable" onclick="toggleCard(this)">
-        <div class="strider-avatar sa-orange">IF</div>
-        <div class="strider-info">
-          <div class="strider-name">Isaiah Fleming <span class="tc-toggle">+ More</span></div>
-          <div class="strider-num">Director of Creative Strategy &amp; Client Experience</div>
-          <div class="tc-body strider-title">The architect of how StrideSide looks, feels, and moves for every client — from first impression to final delivery.</div>
         </div>
       </div>
 
